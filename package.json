@@ -3,6 +3,12 @@
   "version": "1.0.0",
   "main": "gulpfile.js",
   "author": "RadiusTheme",
+  "scripts": {
+    "dev": "gulp run watch",
+    "package": "npm run clean && npm run build",
+    "clean": "rm -rf tmp/*",
+    "build": "gulp run build"
+  },
   "devDependencies": {
     "@babel/core": "^7.14.8",
     "@babel/preset-env": "^7.14.8",
