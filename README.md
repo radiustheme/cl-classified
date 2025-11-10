@@ -1,6 +1,6 @@
 # CL Classified – Free Classified Ads WordPress Theme
 
-**Contributors:** [@RadiusTheme](https://radiustheme.com/)  
+**Contributors:** [RadiusTheme](https://radiustheme.com/)  
 **Tags:** classified listing, directory, listing, elementor, business directory, listing theme  
 **Requires at least:** 5.5  
 **Tested up to:** 6.8  
@@ -31,7 +31,7 @@ Clone the repository using one of the following methods:
 
 #### Using HTTPS
 ```bash
-git https://github.com/radiustheme/cl-classified.git
+git clone https://github.com/radiustheme/cl-classified.git
 ```
 
 #### Using SSH
@@ -53,7 +53,7 @@ npm install --force
 gulp run watch
 ```
 
-#### Building the Plugin
+#### Production Build
 ```bash
 gulp build
 ```
