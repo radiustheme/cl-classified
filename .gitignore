@@ -1,0 +1,12 @@
+sftp-config.json
+todo.txt
+testing.html
+package-lock.json
+composer.lock
+vendor/
+inc/plugins/
+node_modules/
+.DS_Store/
+.DS_Store
+__build/
+__*/
