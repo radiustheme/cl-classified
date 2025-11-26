@@ -5,6 +5,7 @@ License URI: https://www.gnu.org/licenses/gpl-3.0.html
 Tags: custom-background, custom-logo, custom-menu, custom-logo, featured-images, flexible-header, footer-widgets, full-width-template, sticky-post, theme-options, threaded-comments, translation-ready, one-column, two-columns, three-columns, left-sidebar, right-sidebar, blog
 Requires at least: 5.5
 Tested up to: 6.8
+Requires PHP: 7.4
 Stable tag: 0.0.1
 
 == Description ==
@@ -46,13 +47,24 @@ All of our options can be found in the Customizer in 'Appearance > Customize'.
 CL Classified WordPress Theme, Copyright 2025 RadiusTheme
 CL Classified is distributed under the terms of the GNU GPL
 
+== Credits ==
+
+This theme uses the following third-party libraries:
+
+**Font Awesome**
 Font Awesome Icons, Copyright Dave Gandy
+Source: https://fontawesome.com
+License: SIL OFL 1.1 License
+License Details: https://fontawesome.com/license/free
 
-Font Awesome Copyright
-Font License- Applies to all desktop and webfont files in the following directory: font-awesome/fonts/.
-License: SIL OFL 1.1 - http://scripts.sil.org/OFL
-Code License - Applies to all CSS and LESS files in the following directories: font-awesome/css/, font-awesome/less/, and font-awesome/scss/
-License: MIT License - http://opensource.org/licenses/mit-license.html
+**Select2**
+Copyright (c) 2012-2025 Kevin Brown, Igor Vaynberg, and Select2 contributors
+Source: https://select2.org/
+License: MIT License
+License Details: https://github.com/select2/select2/blob/master/LICENSE.md
 
-License: SIL Open Font License, version 1.1.
-Source: https://fontawesome.com/license/free
+**Bootstrap**
+Copyright (c) 2011-2025 The Bootstrap Authors
+Source: https://getbootstrap.com
+License: MIT License
+License Details: https://github.com/twbs/bootstrap/blob/main/LICENSE

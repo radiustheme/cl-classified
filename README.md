@@ -45,7 +45,8 @@ cd cl-classified
 ### Install Dependencies
 Run the following commands to install the required dependencies:
 ```bash
-composer install
+composer install // install dev dependencies also
+composer install --no-dev // install only production dependencies
 npm install --force
 ```
 #### Start Development Server
