@@ -262,8 +262,6 @@ class Scripts {
 	 * @return void
 	 */
 	public function register_scripts() {
-		/* Deregister */
-		wp_deregister_style( 'font-awesome' );
 		// Google fonts.
 		wp_register_style( 'cl-classified-gfonts', $this->fonts_url(), [], $this->version );
 		// Style.
