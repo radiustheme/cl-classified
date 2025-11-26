@@ -429,3 +429,15 @@
     }
   }
 }
+
+.rssSummary,
+.widget_text {
+  a {
+    color: var(--rtcl-primary-color) !important;
+    text-decoration: underline;
+
+    &:hover {
+      color: var(--rtcl-secondary-color) !important;
+    }
+  }
+}

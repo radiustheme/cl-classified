@@ -154,6 +154,14 @@
         color: $bodyColor;
         font-size: 15px;
 
+        a {
+          text-decoration: underline;
+
+          &:hover {
+            color: var(--rtcl-primary-color);
+          }
+        }
+
         p {
           margin-bottom: 10px;
         }

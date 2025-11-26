@@ -123,6 +123,14 @@
 
     .post-meta {
       margin-bottom: 20px;
+
+      a {
+        text-decoration: none;
+        
+        &:hover {
+          color: var(--rtcl-primary-color);
+        }
+      }
     }
 
     .post-footer {
@@ -143,6 +151,7 @@
           border: none;
           border-radius: $borderRadius5;
           line-height: 1.2;
+          text-decoration: none;
 
           &:hover {
             background-color: var(--rtcl-primary-color);

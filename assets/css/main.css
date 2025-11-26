@@ -976,6 +976,14 @@ blockquote cite {
 	width: 100%;
 }
 
+.site-content-block .main-content a {
+	text-decoration: underline;
+}
+
+.site-content-block .main-content a:hover {
+	color: var(--rtcl-secondary-color);
+}
+
 .rtcl-widget-title2 {
 	position: relative;
 	border-bottom: 1px solid #e7e7e7;
@@ -2241,6 +2249,17 @@ body.slidemenuon .mobile-menu-bar span.sidebarBtn span:after {
 	color: #ffffff;
 }
 
+.rssSummary a,
+.widget_text a {
+	color: var(--rtcl-primary-color) !important;
+	text-decoration: underline;
+}
+
+.rssSummary a:hover,
+.widget_text a:hover {
+	color: var(--rtcl-secondary-color) !important;
+}
+
 .site-content .content-area {
 	padding: 80px 0;
 }
@@ -2363,6 +2382,14 @@ body.slidemenuon .mobile-menu-bar span.sidebarBtn span:after {
 	margin-bottom: 20px;
 }
 
+.post-each.post-each-single .post-meta a {
+	text-decoration: none;
+}
+
+.post-each.post-each-single .post-meta a:hover {
+	color: var(--rtcl-primary-color);
+}
+
 .post-each.post-each-single .post-footer {
 	margin-top: 10px;
 }
@@ -2383,6 +2410,7 @@ body.slidemenuon .mobile-menu-bar span.sidebarBtn span:after {
 	border: none;
 	border-radius: 5px;
 	line-height: 1.2;
+	text-decoration: none;
 }
 
 .post-each.post-each-single .post-footer .post-tags a:hover {
@@ -2780,6 +2808,14 @@ body.slidemenuon .mobile-menu-bar span.sidebarBtn span:after {
 	margin-top: 10px;
 	color: #797f89;
 	font-size: 15px;
+}
+
+.comments-area .main-comments .comments-body .comment-text a {
+	text-decoration: underline;
+}
+
+.comments-area .main-comments .comments-body .comment-text a:hover {
+	color: var(--rtcl-primary-color);
 }
 
 .comments-area .main-comments .comments-body .comment-text p {
