@@ -933,6 +933,7 @@ blockquote cite {
 	color: var(--rtcl-primary-color) !important;
 	background-color: transparent;
 	border: 1px solid var(--rtcl-primary-color);
+	text-decoration: none;
 }
 
 .rtin-button .rtin-button-icon,
@@ -2792,10 +2793,12 @@ body.slidemenuon .mobile-menu-bar span.sidebarBtn span:after {
 	font-size: 12px;
 	line-height: 1;
 	transition: all 0.5s ease-out;
+	text-decoration: none;
 }
 
 .comments-area .main-comments .comment-meta .reply-area a:hover {
 	background-color: var(--rtcl-secondary-color);
+	text-decoration: none;
 }
 
 @media (max-width: 991.98px) {

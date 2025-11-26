@@ -136,9 +136,11 @@
           font-size: 12px;
           line-height: 1;
           transition: all .5s ease-out;
+          text-decoration: none;
 
           &:hover {
             background-color: var(--rtcl-secondary-color);
+            text-decoration: none;
           }
 
           @include medium-screen() {
