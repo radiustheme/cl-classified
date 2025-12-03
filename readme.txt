@@ -4,9 +4,9 @@ License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 Tags: custom-background, custom-logo, custom-menu, custom-logo, featured-images, flexible-header, footer-widgets, full-width-template, sticky-post, theme-options, threaded-comments, translation-ready, one-column, two-columns, three-columns, left-sidebar, right-sidebar, blog
 Requires at least: 5.5
-Tested up to: 6.8
+Tested up to: 6.9
 Requires PHP: 7.4
-Stable tag: 0.0.1
+Stable tag: 0.0.2
 
 == Description ==
 
@@ -68,3 +68,8 @@ Copyright (c) 2011-2025 The Bootstrap Authors
 Source: https://getbootstrap.com
 License: MIT License
 License Details: https://github.com/twbs/bootstrap/blob/main/LICENSE
+
+== Changelog ==
+
+= 0.0.2 (Nov 03, 2025) =
+* Initial release
