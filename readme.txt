@@ -2,11 +2,11 @@
 Contributors: techlabpro1
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
-Tags: custom-background, custom-logo, custom-menu, custom-logo, featured-images, flexible-header, footer-widgets, full-width-template, sticky-post, theme-options, threaded-comments, translation-ready, one-column, two-columns, three-columns, left-sidebar, right-sidebar, blog
+Tags: custom-background, custom-logo, custom-menu, featured-images, footer-widgets, translation-ready, left-sidebar, right-sidebar, blog
 Requires at least: 5.5
 Tested up to: 6.9
 Requires PHP: 7.4
-Stable tag: 0.0.2
+Stable tag: 0.0.3
 
 == Description ==
 
@@ -69,7 +69,24 @@ Source: https://getbootstrap.com
 License: MIT License
 License Details: https://github.com/twbs/bootstrap/blob/main/LICENSE
 
+**Images**
+This theme uses images from Pexels, which are licensed under the Pexels License.
+
+Images for theme screenshot
+License URI: https://www.pexels.com/license/
+Source_1: https://www.pexels.com/photo/brown-bag-on-white-background-22434773/
+Source_2: https://www.pexels.com/photo/open-plan-living-interior-6492403/
+Source_2: https://www.pexels.com/photo/furniture-in-a-luxury-living-room-19689230/
+Source_2: https://www.pexels.com/photo/blue-suv-parked-in-erbil-urban-setting-28957987/
+
+All images are used for demo/screenshot purposes only and are not included in the theme package.
+
 == Changelog ==
+
+= 0.0.3 (Dec 22, 2025) =
+* Added unminified version of Bootstrap & Select2
+* Added images link for theme screenshots
+* Removed trademark word
 
 = 0.0.2 (Nov 03, 2025) =
 * Initial release

@@ -33,7 +33,7 @@ function cl_classified_theme_load() {
 	do_action( 'cl_classified_theme_init' );
 }
 
-define( 'CL_CLASSIFIED_VERSION', '0.0.2' );
+define( 'CL_CLASSIFIED_VERSION', '0.0.3' );
 
 require_once 'inc/init.php';
 require_once 'inc/Customizer/sanitization.php';
