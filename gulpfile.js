@@ -41,6 +41,8 @@ gulp.task('rtl', function () {
 gulp.task('minify-js', function () {
     return gulp.src([
         'assets/js/*.js',
+        '!assets/js/bootstrap.bundle.js',
+        '!assets/js/select2.js',
         '!assets/js/slick.func.js'
     ])
         .pipe(uglify())
@@ -52,6 +54,8 @@ gulp.task("minify-css", function () {
         gulp.src(
             'assets/css/*.css',
             '!assets/css/all.min.css',
+            '!assets/css/bootstrap.css',
+            '!assets/css/select2.css',
         )
             .pipe(cleanCSS())
             .pipe(gulp.dest("assets/css/minified"))
