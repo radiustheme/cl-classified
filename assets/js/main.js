@@ -26,7 +26,7 @@
         var a = $('.offscreen-navigation .menu');
         if (a.length) {
             a.children("li").addClass("menu-item-parent");
-            a.find(".menu-item-has-children > a").on("click", function (e) {
+            a.find(".menu-item-has-children > .rt-submenu-toggle").on("click", function (e) {
                 e.preventDefault();
                 $(this).toggleClass("opened");
                 var n = $(this).next(".sub-menu"),

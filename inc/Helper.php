@@ -44,7 +44,12 @@ class Helper {
 	}
 
 	public static function nav_menu_args() {
-		$nav_menu_args = [ 'theme_location' => 'primary', 'container' => 'nav', 'fallback_cb' => false ];
+		$nav_menu_args = [
+			'theme_location' => 'primary',
+			'container'      => 'nav',
+			'fallback_cb'    => false,
+			'walker'         => new Menu_Walker(),
+		];
 
 		return $nav_menu_args;
 	}
