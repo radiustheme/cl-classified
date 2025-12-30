@@ -16,12 +16,6 @@ class Customizer {
 	protected $defaults;
 	protected static $instance = null;
 
-	/**
-	 * Create a constructor.
-	 * Register the sections and controls.
-	 *
-	 * @return void
-	 */
 	public function __construct() {
 		// Register Panels
 		add_action( 'customize_register', [ $this, 'add_customizer_panels' ] );
@@ -29,9 +23,6 @@ class Customizer {
 		add_action( 'customize_register', [ $this, 'add_customizer_sections' ] );
 	}
 
-	/**
-	 * @return self|null
-	 */
 	public static function instance() {
 		if ( null == self::$instance ) {
 			self::$instance = new self();
@@ -40,26 +31,16 @@ class Customizer {
 		return self::$instance;
 	}
 
-	/**
-	 * @return void
-	 */
 	public function populated_default_data() {
 		$this->defaults = Default_Data::default_values();
 	}
 
 	/**
-	 * Add customizer panels.
-	 *
-	 * Adds panels for layout and color settings to the WordPress Customizer.
-	 *
-	 * @param \WP_Customize_Manager $wp_customize The Customizer object.
-	 *
-	 * @return void
+	 * Customizer Panels
 	 */
 	public function add_customizer_panels( $wp_customize ) {
 		// Layout Panel
-		$wp_customize->add_panel(
-			'rttheme_layouts_defaults',
+		$wp_customize->add_panel( 'rttheme_layouts_defaults',
 			[
 				'title'       => esc_html__( 'Layout Settings', 'cl-classified' ),
 				'description' => esc_html__( 'Adjust the overall layout for your site.', 'cl-classified' ),
@@ -67,8 +48,7 @@ class Customizer {
 			]
 		);
 		// Color Panel
-		$wp_customize->add_panel(
-			'rttheme_color_panel',
+		$wp_customize->add_panel( 'rttheme_color_panel',
 			[
 				'title'       => esc_html__( 'Color', 'cl-classified' ),
 				'description' => esc_html__( 'Change site color', 'cl-classified' ),
@@ -78,11 +58,7 @@ class Customizer {
 	}
 
 	/**
-	 * Add customizer section.
-	 *
-	 * @param \WP_Customize_Manager $wp_customize The Customizer object.
-	 *
-	 * @return void
+	 * Customizer sections
 	 */
 	public function add_customizer_sections( $wp_customize ) {
 		// Rename the default Colors section
@@ -92,56 +68,49 @@ class Customizer {
 		// Change the Priority of the default Colors section so it's at the top of our Panel
 		$wp_customize->get_section( 'colors' )->priority = 10;
 		// Add General Section
-		$wp_customize->add_section(
-			'general_section',
+		$wp_customize->add_section( 'general_section',
 			[
 				'title'    => esc_html__( 'General', 'cl-classified' ),
 				'priority' => 10,
 			]
 		);
 		// Add Header Main Section
-		$wp_customize->add_section(
-			'header_main_section',
+		$wp_customize->add_section( 'header_main_section',
 			[
 				'title'    => esc_html__( 'Header', 'cl-classified' ),
 				'priority' => 11,
 			]
 		);
 		// Add Footer Section
-		$wp_customize->add_section(
-			'footer_section',
+		$wp_customize->add_section( 'footer_section',
 			[
 				'title'    => esc_html__( 'Footer', 'cl-classified' ),
 				'priority' => 12,
 			]
 		);
 		// Add Color Section
-		$wp_customize->add_section(
-			'site_color_section',
+		$wp_customize->add_section( 'site_color_section',
 			[
 				'title'    => esc_html__( 'Site Color', 'cl-classified' ),
 				'panel'    => 'rttheme_color_panel',
 				'priority' => 10,
 			]
 		);
-		$wp_customize->add_section(
-			'header_color_section',
+		$wp_customize->add_section( 'header_color_section',
 			[
 				'title'    => esc_html__( 'Header Color', 'cl-classified' ),
 				'panel'    => 'rttheme_color_panel',
 				'priority' => 12,
 			]
 		);
-		$wp_customize->add_section(
-			'breadcrumb_color_section',
+		$wp_customize->add_section( 'breadcrumb_color_section',
 			[
 				'title'    => esc_html__( 'Breadcrumb Color', 'cl-classified' ),
 				'panel'    => 'rttheme_color_panel',
 				'priority' => 13,
 			]
 		);
-		$wp_customize->add_section(
-			'footer_color_section',
+		$wp_customize->add_section( 'footer_color_section',
 			[
 				'title'    => esc_html__( 'Footer Color', 'cl-classified' ),
 				'panel'    => 'rttheme_color_panel',
@@ -149,8 +118,7 @@ class Customizer {
 			]
 		);
 		// Add Blog Layout Section
-		$wp_customize->add_section(
-			'blog_layout_section',
+		$wp_customize->add_section( 'blog_layout_section',
 			[
 				'title'    => esc_html__( 'Blog Layout', 'cl-classified' ),
 				'priority' => 10,
@@ -158,8 +126,7 @@ class Customizer {
 			]
 		);
 		// Add Single Post Layout Section
-		$wp_customize->add_section(
-			'single_post_layout_section',
+		$wp_customize->add_section( 'single_post_layout_section',
 			[
 				'title'    => esc_html__( 'Single Post Layout', 'cl-classified' ),
 				'priority' => 10,
@@ -167,8 +134,7 @@ class Customizer {
 			]
 		);
 		// Add Pages Layout Section
-		$wp_customize->add_section(
-			'page_layout_section',
+		$wp_customize->add_section( 'page_layout_section',
 			[
 				'title'    => esc_html__( 'Pages Layout', 'cl-classified' ),
 				'priority' => 15,
@@ -176,8 +142,7 @@ class Customizer {
 			]
 		);
 		// Add Error Layout Section
-		$wp_customize->add_section(
-			'error_layout_section',
+		$wp_customize->add_section( 'error_layout_section',
 			[
 				'title'    => esc_html__( 'Error Layout', 'cl-classified' ),
 				'priority' => 15,
@@ -185,8 +150,7 @@ class Customizer {
 			]
 		);
 		// Add Listing Layout Section
-		$wp_customize->add_section(
-			'listing_archive_layout_section',
+		$wp_customize->add_section( 'listing_archive_layout_section',
 			[
 				'title'    => esc_html__( 'Listing Archive Layout', 'cl-classified' ),
 				'priority' => 20,
@@ -194,8 +158,7 @@ class Customizer {
 			]
 		);
 		// Add Listing Single Layout Section
-		$wp_customize->add_section(
-			'listing_single_layout_section',
+		$wp_customize->add_section( 'listing_single_layout_section',
 			[
 				'title'    => esc_html__( 'Listing Single Layout', 'cl-classified' ),
 				'priority' => 21,
@@ -203,44 +166,40 @@ class Customizer {
 			]
 		);
 		// Add Blog Archive Section
-		$wp_customize->add_section(
-			'blog_archive_section',
+		$wp_customize->add_section( 'blog_archive_section',
 			[
 				'title'    => esc_html__( 'Blog', 'cl-classified' ),
 				'priority' => 15,
 			]
 		);
 		// Add Single Post Section
-		$wp_customize->add_section(
-			'single_post_section',
+		$wp_customize->add_section( 'single_post_section',
 			[
 				'title'    => esc_html__( 'Post Details', 'cl-classified' ),
 				'priority' => 16,
 			]
 		);
 		// Add Listing Settings Section
-		$wp_customize->add_section(
-			'listings_section',
+		$wp_customize->add_section( 'listings_section',
 			[
 				'title'    => esc_html__( 'Listing Settings', 'cl-classified' ),
 				'priority' => 17,
 			]
 		);
 		// Contact Info
-		$wp_customize->add_section(
-			'contact_info_section',
+		$wp_customize->add_section( 'contact_info_section',
 			[
 				'title'    => esc_html__( 'Contact & Social', 'cl-classified' ),
 				'priority' => 17,
 			]
 		);
 		// Add Error Page Section
-		$wp_customize->add_section(
-			'error_section',
+		$wp_customize->add_section( 'error_section',
 			[
 				'title'    => esc_html__( 'Error Page', 'cl-classified' ),
 				'priority' => 19,
 			]
 		);
 	}
+
 }

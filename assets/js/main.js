@@ -26,7 +26,7 @@
         var a = $('.offscreen-navigation .menu');
         if (a.length) {
             a.children("li").addClass("menu-item-parent");
-            a.find(".menu-item-has-children > .rt-submenu-toggle").on("click", function (e) {
+            a.find(".menu-item-has-children > a").on("click", function (e) {
                 e.preventDefault();
                 $(this).toggleClass("opened");
                 var n = $(this).next(".sub-menu"),
@@ -39,72 +39,23 @@
             });
         }
 
-        var focusByMouse = false;
-
-        // Detect if focus came from mouse
-        $('.sidebarBtn').on('mousedown', function () {
-            focusByMouse = true;
-            setTimeout(() => (focusByMouse = false), 200);
-        });
-
-        // Handle mouse click
         $('.sidebarBtn').on('click', function (e) {
             e.preventDefault();
-            toggleMenu($(this));
-        });
-
-        // Handle keyboard Enter/Space
-        $('.sidebarBtn').on('keydown', function (e) {
-            if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                toggleMenu($(this));
+            if ($('.rt-slide-nav').is(":visible")) {
+                $('.rt-slide-nav').slideUp();
+                $('body').removeClass('slidemenuon');
+            } else {
+                $('.rt-slide-nav').slideDown();
+                $('body').addClass('slidemenuon');
             }
-        });
 
-        // Handle keyboard Tab focus
-        $('.sidebarBtn').on('focus', function () {
-            if (!focusByMouse) {
-                openMenu($(this), true);
-            }
         });
-
-        // Close when clicking or focusing outside
-        $(document).on('click focusin', function (e) {
-            if (!$(e.target).closest('.rt-slide-nav, .sidebarBtn').length) {
-                closeMenu($('.sidebarBtn'));
-            }
-        });
-
 
         // Tooltip
         const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
         const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
 
     });
-
-    function openMenu($btn, moveFocus) {
-        var $nav = $('.rt-slide-nav');
-        if (!$nav.is(':visible')) {
-            $nav.slideDown(200);
-            $('body').addClass('slidemenuon');
-            $btn.attr('aria-expanded', 'true');
-        }
-    }
-
-    function closeMenu($btn) {
-        var $nav = $('.rt-slide-nav');
-        if ($nav.is(':visible')) {
-            $nav.slideUp(200);
-            $('body').removeClass('slidemenuon');
-            $btn.attr('aria-expanded', 'false');
-        }
-    }
-
-    function toggleMenu($btn) {
-        var expanded = $btn.attr('aria-expanded') === 'true';
-        if (expanded) closeMenu($btn);
-        else openMenu($btn);
-    }
 
     function run_sticky_menu() {
 

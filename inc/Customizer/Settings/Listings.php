@@ -17,9 +17,6 @@ use RadiusTheme\ClassifiedLite\Helper;
  */
 class Listings extends Customizer {
 
-	/**
-	 * @return void
-	 */
 	public function __construct() {
 		parent::instance();
 		$this->populated_default_data();
@@ -27,11 +24,6 @@ class Listings extends Customizer {
 		add_action( 'customize_register', [ $this, 'register_listings_controls' ] );
 	}
 
-	/**
-	 * @param  \WP_Customize_Manager $wp_customize  The Customizer object.
-	 *
-	 * @return void
-	 */
 	public function register_listings_controls( $wp_customize ) {
 
 		// Show or Hide Listing sidebar
@@ -44,9 +36,7 @@ class Listings extends Customizer {
 			]
 		);
 		$wp_customize->add_control(
-			new Switcher(
-				$wp_customize,
-				'listing_detail_sidebar',
+			new Switcher( $wp_customize, 'listing_detail_sidebar',
 				[
 					'label'   => esc_html__( 'Listing Sidebar Visibility', 'cl-classified' ),
 					'section' => 'listings_section',
@@ -55,23 +45,14 @@ class Listings extends Customizer {
 		);
 
 		// Separator
-		$wp_customize->add_setting(
-			'separator_listing1',
-			[
-				'default'           => '',
-				'sanitize_callback' => 'esc_html',
-			]
-		);
-		$wp_customize->add_control(
-			new Separator(
-				$wp_customize,
-				'separator_listing1',
-				[
-					'settings' => 'separator_listing1',
-					'section'  => 'listings_section',
-				]
-			)
-		);
+		$wp_customize->add_setting( 'separator_listing1', [
+			'default'           => '',
+			'sanitize_callback' => 'esc_html',
+		] );
+		$wp_customize->add_control( new Separator( $wp_customize, 'separator_listing1', [
+			'settings' => 'separator_listing1',
+			'section'  => 'listings_section',
+		] ) );
 
 		// Banner Search
 		$wp_customize->add_setting(
@@ -83,9 +64,7 @@ class Listings extends Customizer {
 			]
 		);
 		$wp_customize->add_control(
-			new Switcher(
-				$wp_customize,
-				'banner_search',
+			new Switcher( $wp_customize, 'banner_search',
 				[
 					'label'   => esc_html__( 'Banner Search Visibility', 'cl-classified' ),
 					'section' => 'listings_section',
@@ -103,9 +82,7 @@ class Listings extends Customizer {
 			]
 		);
 		$wp_customize->add_control(
-			new Switcher(
-				$wp_customize,
-				'banner_search_type',
+			new Switcher( $wp_customize, 'banner_search_type',
 				[
 					'label'   => esc_html__( 'Search by Type', 'cl-classified' ),
 					'section' => 'listings_section',
@@ -123,9 +100,7 @@ class Listings extends Customizer {
 			]
 		);
 		$wp_customize->add_control(
-			new Switcher(
-				$wp_customize,
-				'banner_search_location',
+			new Switcher( $wp_customize, 'banner_search_location',
 				[
 					'label'   => esc_html__( 'Search by Location', 'cl-classified' ),
 					'section' => 'listings_section',
@@ -143,9 +118,7 @@ class Listings extends Customizer {
 			]
 		);
 		$wp_customize->add_control(
-			new Switcher(
-				$wp_customize,
-				'banner_search_radius',
+			new Switcher( $wp_customize, 'banner_search_radius',
 				[
 					'label'   => esc_html__( 'Search by Radius', 'cl-classified' ),
 					'section' => 'listings_section',
@@ -163,9 +136,7 @@ class Listings extends Customizer {
 			]
 		);
 		$wp_customize->add_control(
-			new Switcher(
-				$wp_customize,
-				'banner_search_category',
+			new Switcher( $wp_customize, 'banner_search_category',
 				[
 					'label'   => esc_html__( 'Search by Category', 'cl-classified' ),
 					'section' => 'listings_section',
@@ -183,9 +154,7 @@ class Listings extends Customizer {
 			]
 		);
 		$wp_customize->add_control(
-			new Switcher(
-				$wp_customize,
-				'banner_search_keyword',
+			new Switcher( $wp_customize, 'banner_search_keyword',
 				[
 					'label'   => esc_html__( 'Search by keyword', 'cl-classified' ),
 					'section' => 'listings_section',
@@ -194,43 +163,28 @@ class Listings extends Customizer {
 		);
 
 		// Search Style
-		$wp_customize->add_setting(
-			'listing_search_style',
-			[
-				'capability'        => 'edit_theme_options',
-				'sanitize_callback' => 'rttheme_text_sanitization',
-				'default'           => $this->defaults['listing_search_style'],
-			]
-		);
+		$wp_customize->add_setting( 'listing_search_style', [
+			'capability'        => 'edit_theme_options',
+			'sanitize_callback' => 'rttheme_text_sanitization',
+			'default'           => $this->defaults['listing_search_style'],
+		] );
 
-		$wp_customize->add_control(
-			'listing_search_style',
-			[
-				'type'    => 'select',
-				'section' => 'listings_section', // Add a default or your own section
-				'label'   => esc_html__( 'Search Style', 'cl-classified' ),
-				'choices' => Helper::get_search_form_style(),
-			]
-		);
+		$wp_customize->add_control( 'listing_search_style', [
+			'type'    => 'select',
+			'section' => 'listings_section', // Add a default or your own section
+			'label'   => esc_html__( 'Search Style', 'cl-classified' ),
+			'choices' => Helper::get_search_form_style(),
+		] );
 
 		// Separator
-		$wp_customize->add_setting(
-			'separator_listing2',
-			[
-				'default'           => '',
-				'sanitize_callback' => 'esc_html',
-			]
-		);
-		$wp_customize->add_control(
-			new Separator(
-				$wp_customize,
-				'separator_listing2',
-				[
-					'settings' => 'separator_listing2',
-					'section'  => 'listings_section',
-				]
-			)
-		);
+		$wp_customize->add_setting( 'separator_listing2', [
+			'default'           => '',
+			'sanitize_callback' => 'esc_html',
+		] );
+		$wp_customize->add_control( new Separator( $wp_customize, 'separator_listing2', [
+			'settings' => 'separator_listing2',
+			'section'  => 'listings_section',
+		] ) );
 
 		// Listing Archive Title
 		$wp_customize->add_setting(
@@ -242,9 +196,7 @@ class Listings extends Customizer {
 			]
 		);
 		$wp_customize->add_control(
-			new Switcher(
-				$wp_customize,
-				'listing_archive_title',
+			new Switcher( $wp_customize, 'listing_archive_title',
 				[
 					'label'   => esc_html__( 'Listing Archive Title Visibility', 'cl-classified' ),
 					'section' => 'listings_section',
@@ -262,9 +214,7 @@ class Listings extends Customizer {
 			]
 		);
 		$wp_customize->add_control(
-			new Switcher(
-				$wp_customize,
-				'listing_related',
+			new Switcher( $wp_customize, 'listing_related',
 				[
 					'label'   => esc_html__( 'Related Listing', 'cl-classified' ),
 					'section' => 'listings_section',

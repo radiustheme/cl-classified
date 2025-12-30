@@ -1,5 +1,4 @@
 <?php
-// phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
 $post_id             = get_the_id();
 $current_post        = [ $post_id ];
 $related_post_number = apply_filters( 'cl_classified_related_post_number', 2 );
@@ -21,7 +20,7 @@ foreach ( $categories as $category ) {
 
 $args['category__in'] = $category_ids;
 
-// Get the posts ----------
+# Get the posts ----------
 $related_query = new \WP_Query( $args );
 
 $count_post = $related_query->post_count;
@@ -33,12 +32,12 @@ if ( ! $count_post ) {
 ?>
 <div class="content-block-gap"></div>
 <div class="site-content-block">
-	<div class="main-title-block">
-		<h3 class="main-title">
+    <div class="main-title-block">
+        <h3 class="main-title">
 			<?php esc_html_e( 'Related Post', 'cl-classified' ); ?>
-		</h3>
-	</div>
-	<div class="related-content row">
+        </h3>
+    </div>
+    <div class="related-content row">
 		<?php
 		while ( $related_query->have_posts() ) {
 			$related_query->the_post();
@@ -46,5 +45,5 @@ if ( ! $count_post ) {
 		}
 		wp_reset_postdata();
 		?>
-	</div>
+    </div>
 </div>

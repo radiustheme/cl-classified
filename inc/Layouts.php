@@ -17,38 +17,22 @@ class Layouts {
 	public $type;
 	public $meta_value;
 
-	/**
-	 * Constructor
-	 *
-	 * @return void
-	 */
 	public function __construct() {
 		$this->base = 'cl_classified';
 
 		add_action( 'template_redirect', [ $this, 'layout_settings' ] );
 	}
 
-	/**
-	 * Get the instance of the class
-	 *
-	 * @return self|null
-	 */
 	public static function instance() {
 		if ( null == self::$instance ) {
-			self::$instance = new self();
+			self::$instance = new self;
 		}
 
 		return self::$instance;
 	}
 
-	/**
-	 * Set layout settings
-	 *
-	 * @return void
-	 */
 	public function layout_settings() {
-		$is_listing         = false;
-		$is_listing_archive = false;
+		$is_listing = $is_listing_archive = false;
 
 		if ( class_exists( 'Rtcl' ) ) {
 			$is_listing_archive = Functions::is_listings() || Functions::is_listing_taxonomy();
@@ -90,7 +74,8 @@ class Layouts {
 			Options::$has_breadcrumb    = $this->meta_layout_global_option( 'breadcrumb', true );
 			Options::$has_banner_search = $this->meta_layout_global_option( 'banner_search', true );
 
-		} elseif ( is_home() || is_archive() || is_search() || is_404() || $is_listing ) {
+		} // Blog and Archive
+		elseif ( is_home() || is_archive() || is_search() || is_404() || $is_listing ) {
 			if ( is_404() ) {
 				$this->type                                   = 'error';
 				Options::$options[ $this->type . '_layout' ]  = 'full-width';
@@ -116,17 +101,7 @@ class Layouts {
 		}
 	}
 
-	/**
-	 * Get a meta, type-specific, or global option value for a given key.
-	 *
-	 * Checks meta first, then type-specific layout option, then global option.
-	 * Optionally converts the result to a boolean.
-	 *
-	 * @param string $key     Option or meta key suffix.
-	 * @param bool   $is_bool Whether to return a boolean value. Default false.
-	 *
-	 * @return mixed|string|bool Option value or boolean if $is_bool is true.
-	 */
+	// Single
 	private function meta_layout_global_option( $key, $is_bool = false ) {
 		$layout_key = $this->type . '_' . $key;
 
@@ -148,17 +123,7 @@ class Layouts {
 		return $result;
 	}
 
-	/**
-	 * Get a meta or global option value for a given key.
-	 *
-	 * Checks meta-value first, then type-specific option, then global option.
-	 * Optionally converts the result to a boolean.
-	 *
-	 * @param string $key     Option- or meta-key.
-	 * @param bool   $is_bool Whether to return a boolean value. Default false.
-	 *
-	 * @return mixed|string|bool Option value or boolean if $is_bool is true.
-	 */
+	// Meta Global
 	private function meta_global_option( $key, $is_bool = false ) {
 		$meta      = ! empty( $this->meta_value[ $key ] ) ? $this->meta_value[ $key ] : 'default';
 		$op_layout = Options::$options[ $key ] ? Options::$options[ $key ] : 'default';
@@ -178,20 +143,13 @@ class Layouts {
 		return $result;
 	}
 
-	/**
-	 * Get a meta-layout option value for a given key.
-	 *
-	 * Returns the meta-value if set, otherwise falls back to the type-specific option.
-	 *
-	 * @param string $key Option or meta key suffix.
-	 *
-	 * @return mixed Option value or meta value.
-	 */
+	// Single
 	private function meta_layout_option( $key ) {
 		$layout_key = $this->type . '_' . $key;
 
 		$meta      = ! empty( $this->meta_value[ $key ] ) ? $this->meta_value[ $key ] : 'default';
 		$op_layout = Options::$options[ $layout_key ];
+
 
 		if ( $meta != 'default' ) {
 			$result = $meta;
@@ -202,16 +160,7 @@ class Layouts {
 		return $result;
 	}
 
-	/**
-	 * Get a layout option value, falling back to a global option if not set.
-	 *
-	 * Optionally converts the result to a boolean.
-	 *
-	 * @param string $key     Option key suffix.
-	 * @param bool   $is_bool Whether to return a boolean value. Default false.
-	 *
-	 * @return mixed|string|bool Option value or boolean if $is_bool is true.
-	 */
+	// Archive
 	private function layout_global_option( $key, $is_bool = false ) {
 		$layout_key = $this->type . '_' . $key;
 
@@ -230,13 +179,7 @@ class Layouts {
 		return $result;
 	}
 
-	/**
-	 * Get a layout option value for the current type.
-	 *
-	 * @param string $key Option key suffix.
-	 *
-	 * @return mixed|null Returns the option value if set, null otherwise.
-	 */
+	// Archive
 	private function layout_option( $key ) {
 		$layout_key = $this->type . '_' . $key;
 		$op_layout  = Options::$options[ $layout_key ];
@@ -244,17 +187,6 @@ class Layouts {
 		return $op_layout;
 	}
 
-	/**
-	 * Get a background image URL for a given key.
-	 *
-	 * Checks post meta first (if $is_single), then type-specific option, then global option,
-	 * and falls back to a default image.
-	 *
-	 * @param string $key       Option or meta key suffix.
-	 * @param bool   $is_single Whether to use meta value for a single item. Default true.
-	 *
-	 * @return string URL of the background image.
-	 */
 	private function bgimg_option( $key, $is_single = true ) {
 		$layout_key = $this->type . '_' . $key;
 
@@ -280,4 +212,5 @@ class Layouts {
 
 		return $img;
 	}
+
 }

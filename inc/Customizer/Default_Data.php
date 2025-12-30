@@ -9,11 +9,8 @@ namespace RadiusTheme\ClassifiedLite\Customizer;
 
 class Default_Data {
 
-	/**
-	 * Customizer Default Data
-	 *
-	 * @return mixed|null
-	 */
+	// Customizer Default Data
+
 	public static function default_values() {
 		$customizer_defaults = [
 
@@ -37,7 +34,7 @@ class Default_Data {
 			'header_chat_icon'               => 0,
 			'header_style'                   => '1',
 			'header_width'                   => 'box-width',
-			'menu_alignment'                 => 'menu-right',
+			'menu_alignment'                 => 'menu-center',
 			'tr_header'                      => 0,
 			'header_transparent_color'       => 'rgba(255, 255, 255, .5)',
 
@@ -68,7 +65,7 @@ class Default_Data {
 			// Footer
 			'footer_style'                   => '1',
 			'copyright_area'                 => 1,
-			'copyright_text'                 => gmdate( 'Y' ) . '© All right reserved by RadiusTheme',
+			'copyright_text'                 => date( 'Y' ) . '© All right reserved by Radiustheme',
 			'app_store_image'                => '',
 			'app_store_url'                  => '#',
 			'play_store_image'               => '',
@@ -170,6 +167,7 @@ class Default_Data {
 			'primary_color'                  => '#f9423a',
 			'lite_primary_color'             => '#feeceb',
 			'secondary_color'                => '#ef1c13',
+			'body_color'                     => '#797f89',
 			'top_listing_bg'                 => '#dff0f3',
 
 			// Contact Info
@@ -185,94 +183,94 @@ class Default_Data {
 			'skype'                          => '',
 
 			// Body Typography
-			'typo_body'                      => wp_json_encode(
+			'typo_body'                      => json_encode(
 				[
 					'font'          => 'Lato',
 					'regularweight' => 'normal',
-				]
+				],
 			),
 			'typo_body_size'                 => '16px',
 			'typo_body_height'               => '24px',
 
 			// Menu Typography
-			'typo_menu'                      => wp_json_encode(
+			'typo_menu'                      => json_encode(
 				[
 					'font'          => 'Nunito',
 					'regularweight' => '700',
-				]
+				],
 			),
 			'typo_menu_size'                 => '16px',
 			'typo_menu_height'               => '24px',
 
-			// Sub Menu Typography
+			//Sub Menu Typography
 			'typo_submenu_size'              => '16px',
 			'typo_submenu_height'            => '24px',
 
 			// Heading Typography
-			'typo_heading'                   => wp_json_encode(
+			'typo_heading'                   => json_encode(
 				[
 					'font'          => 'Nunito',
 					'regularweight' => '700',
-				]
+				],
 			),
-			'typo_h1'                        => wp_json_encode(
+			'typo_h1'                        => json_encode(
 				[
 					'font'          => '',
 					'regularweight' => '700',
-				]
+				],
 			),
 			'typo_h1_size'                   => '36px',
 			'typo_h1_height'                 => '1.5',
 
-			'typo_h2'                        => wp_json_encode(
+			'typo_h2'        => json_encode(
 				[
 					'font'          => '',
 					'regularweight' => '700',
 
-				]
+				],
 			),
-			'typo_h2_size'                   => '30px',
-			'typo_h2_height'                 => '1.5',
+			'typo_h2_size'   => '30px',
+			'typo_h2_height' => '1.5',
 
-			'typo_h3'                        => wp_json_encode(
+			'typo_h3'        => json_encode(
 				[
 					'font'          => '',
 					'regularweight' => '700',
 
-				]
+				],
 			),
-			'typo_h3_size'                   => '24px',
-			'typo_h3_height'                 => '1.5',
+			'typo_h3_size'   => '24px',
+			'typo_h3_height' => '1.5',
 
-			'typo_h4'                        => wp_json_encode(
+			'typo_h4'        => json_encode(
 				[
 					'font'          => '',
 					'regularweight' => '700',
 
-				]
+				],
 			),
-			'typo_h4_size'                   => '20px',
-			'typo_h4_height'                 => '30px',
+			'typo_h4_size'   => '20px',
+			'typo_h4_height' => '30px',
 
-			'typo_h5'                        => wp_json_encode(
+			'typo_h5'        => json_encode(
 				[
 					'font'          => '',
 					'regularweight' => '700',
 
-				]
+				],
 			),
-			'typo_h5_size'                   => '18px',
-			'typo_h5_height'                 => '28px',
+			'typo_h5_size'   => '18px',
+			'typo_h5_height' => '28px',
 
-			'typo_h6'                        => wp_json_encode(
+			'typo_h6'        => json_encode(
 				[
 					'font'          => '',
 					'regularweight' => '700',
 
-				]
+				],
 			),
-			'typo_h6_size'                   => '16px',
-			'typo_h6_height'                 => '26px',
+			'typo_h6_size'   => '16px',
+			'typo_h6_height' => '26px',
 
 		];
 

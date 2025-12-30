@@ -51,9 +51,9 @@ $typo_h6 = json_decode( Options::$options['typo_h6'], true );
 
 body {
 font-family: '<?php echo esc_html( $typo_body['font'] ); ?>', sans-serif;
-font-size: <?php echo esc_html( Options::$options['typo_body_size'] ); ?>;
+font-size: <?php echo esc_html( Options::$options['typo_body_size'] ) ?>;
 line-height: <?php echo esc_html( Options::$options['typo_body_height'] ); ?>;
-font-weight : <?php echo esc_html( $typo_body['regularweight'] ); ?>;
+font-weight : <?php echo esc_html( $typo_body['regularweight'] ) ?>;
 font-style: normal;
 }
 
@@ -63,12 +63,12 @@ font-family: '<?php echo esc_html( $typo_menu['font'] ); ?>', sans-serif;
 
 .main-header .main-navigation-area .main-navigation nav > ul > li > a {
 line-height: <?php echo esc_html( Options::$options['typo_menu_height'] ); ?>;
-font-weight : <?php echo esc_html( $typo_menu['regularweight'] ); ?>;
-font-size: <?php echo esc_html( Options::$options['typo_menu_size'] ); ?>;
+font-weight : <?php echo esc_html( $typo_menu['regularweight'] ) ?>;
+font-size: <?php echo esc_html( Options::$options['typo_menu_size'] ) ?>;
 }
 
 .main-header .main-navigation-area .main-navigation nav > ul > li ul.sub-menu li a {
-font-size: <?php echo esc_html( Options::$options['typo_submenu_size'] ); ?>;
+font-size: <?php echo esc_html( Options::$options['typo_submenu_size'] ) ?>;
 line-height: <?php echo esc_html( Options::$options['typo_submenu_height'] ); ?>;
 }
 
@@ -80,45 +80,45 @@ font-style: normal;
 }
 
 <?php if ( ! empty( $typo_h1['font'] ) && $typo_h1['font'] !== 'Inherit' ) { ?>
-	h1 {
-	font-family: '<?php echo esc_html( $typo_h1['font'] ); ?>', sans-serif;
-	font-weight : <?php echo esc_html( $typo_h1['regularweight'] ); ?>;
-	}
+    h1 {
+    font-family: '<?php echo esc_html( $typo_h1['font'] ); ?>', sans-serif;
+    font-weight : <?php echo esc_html( $typo_h1['regularweight'] ); ?>;
+    }
 <?php } ?>
 
 <?php if ( ! empty( $typo_h2['font'] ) && $typo_h2['font'] !== 'Inherit' ) { ?>
-	h2 {
-	font-family: '<?php echo esc_html( $typo_h2['font'] ); ?>', sans-serif;
-	font-weight : <?php echo esc_html( $typo_h2['regularweight'] ); ?>;
-	}
+    h2 {
+    font-family: '<?php echo esc_html( $typo_h2['font'] ); ?>', sans-serif;
+    font-weight : <?php echo esc_html( $typo_h2['regularweight'] ); ?>;
+    }
 <?php } ?>
 
 <?php if ( ! empty( $typo_h3['font'] ) && $typo_h3['font'] !== 'Inherit' ) { ?>
-	h3 {
-	font-family: '<?php echo esc_html( $typo_h3['font'] ); ?>', sans-serif;
-	font-weight : <?php echo esc_html( $typo_h3['regularweight'] ); ?>;
-	}
+    h3 {
+    font-family: '<?php echo esc_html( $typo_h3['font'] ); ?>', sans-serif;
+    font-weight : <?php echo esc_html( $typo_h3['regularweight'] ); ?>;
+    }
 <?php } ?>
 
 <?php if ( ! empty( $typo_h4['font'] ) && $typo_h4['font'] !== 'Inherit' ) { ?>
-	h4 {
-	font-family: '<?php echo esc_html( $typo_h4['font'] ); ?>', sans-serif;
-	font-weight : <?php echo esc_html( $typo_h4['regularweight'] ); ?>;
-	}
+    h4 {
+    font-family: '<?php echo esc_html( $typo_h4['font'] ); ?>', sans-serif;
+    font-weight : <?php echo esc_html( $typo_h4['regularweight'] ); ?>;
+    }
 <?php } ?>
 
 <?php if ( ! empty( $typo_h5['font'] ) && $typo_h5['font'] !== 'Inherit' ) { ?>
-	h5 {
-	font-family: '<?php echo esc_html( $typo_h5['font'] ); ?>', sans-serif;
-	font-weight : <?php echo esc_html( $typo_h5['regularweight'] ); ?>;
-	}
+    h5 {
+    font-family: '<?php echo esc_html( $typo_h5['font'] ); ?>', sans-serif;
+    font-weight : <?php echo esc_html( $typo_h5['regularweight'] ); ?>;
+    }
 <?php } ?>
 
 <?php if ( ! empty( $typo_h6['font'] ) && $typo_h6['font'] !== 'Inherit' ) { ?>
-	h6 {
-	font-family: '<?php echo esc_html( $typo_h6['font'] ); ?>', sans-serif;
-	font-weight : <?php echo esc_html( $typo_h6['regularweight'] ); ?>;
-	}
+    h6 {
+    font-family: '<?php echo esc_html( $typo_h6['font'] ); ?>', sans-serif;
+    font-weight : <?php echo esc_html( $typo_h6['regularweight'] ); ?>;
+    }
 <?php } ?>
 
 h1 {

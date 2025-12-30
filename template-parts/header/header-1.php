@@ -13,7 +13,7 @@ if ( 'fullwidth' == Options::$header_width ) {
 }
 ?>
 <div class="main-header">
-	<div class="<?php echo esc_attr( $header_container ); ?>">
-		<?php get_template_part( 'template-parts/header/part-1' ); ?>
-	</div>
+    <div class="<?php echo esc_attr( $header_container ); ?>">
+	    <?php get_template_part( 'template-parts/header/part-1' ); ?>
+    </div>
 </div>

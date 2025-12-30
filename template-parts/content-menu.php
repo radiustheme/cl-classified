@@ -9,13 +9,13 @@ use RadiusTheme\ClassifiedLite\Options;
 
 $header_style = Options::$header_style ? Options::$header_style : 1;
 ?>
-	<header id="site-header" class="site-header">
+    <header id="site-header" class="site-header">
 		<?php
 		if ( Options::$has_top_bar ) {
 			get_template_part( 'template-parts/header/header-top' );
 		}
 		get_template_part( 'template-parts/header/header', $header_style );
 		?>
-	</header>
+    </header>
 
 	<?php get_template_part( 'template-parts/header/header', 'offscreen' ); ?>

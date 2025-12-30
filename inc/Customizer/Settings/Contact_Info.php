@@ -15,9 +15,6 @@ use RadiusTheme\ClassifiedLite\Customizer\Customizer;
  */
 class Contact_Info extends Customizer {
 
-	/**
-	 * @return void
-	 */
 	public function __construct() {
 		parent::instance();
 		$this->populated_default_data();
@@ -25,23 +22,16 @@ class Contact_Info extends Customizer {
 		add_action( 'customize_register', [ $this, 'register_contact_controls' ] );
 	}
 
-	/**
-	 * @param  \WP_Customize_Manager $wp_customize  The Customizer object.
-	 *
-	 * @return void
-	 */
 	public function register_contact_controls( $wp_customize ) {
 		// Address
-		$wp_customize->add_setting(
-			'contact_address',
+		$wp_customize->add_setting( 'contact_address',
 			[
 				'default'           => $this->defaults['contact_address'],
 				'transport'         => 'refresh',
 				'sanitize_callback' => 'sanitize_textarea_field',
 			]
 		);
-		$wp_customize->add_control(
-			'contact_address',
+		$wp_customize->add_control( 'contact_address',
 			[
 				'label'   => __( 'Address', 'cl-classified' ),
 				'section' => 'contact_info_section',
@@ -49,16 +39,14 @@ class Contact_Info extends Customizer {
 			]
 		);
 		// Phone
-		$wp_customize->add_setting(
-			'contact_phone',
+		$wp_customize->add_setting( 'contact_phone',
 			[
 				'default'           => $this->defaults['contact_phone'],
 				'transport'         => 'refresh',
 				'sanitize_callback' => 'sanitize_text_field',
 			]
 		);
-		$wp_customize->add_control(
-			'contact_phone',
+		$wp_customize->add_control( 'contact_phone',
 			[
 				'label'   => __( 'Phone', 'cl-classified' ),
 				'section' => 'contact_info_section',
@@ -66,16 +54,14 @@ class Contact_Info extends Customizer {
 			]
 		);
 		// Email
-		$wp_customize->add_setting(
-			'contact_email',
+		$wp_customize->add_setting( 'contact_email',
 			[
 				'default'           => $this->defaults['contact_email'],
 				'transport'         => 'refresh',
 				'sanitize_callback' => 'sanitize_email',
 			]
 		);
-		$wp_customize->add_control(
-			'contact_email',
+		$wp_customize->add_control( 'contact_email',
 			[
 				'label'   => __( 'Email', 'cl-classified' ),
 				'section' => 'contact_info_section',
@@ -85,34 +71,24 @@ class Contact_Info extends Customizer {
 		/**
 		 * Separator
 		 */
-		$wp_customize->add_setting(
-			'social_separator',
+		$wp_customize->add_setting( 'social_separator',
 			[
 				'default'           => '',
 				'sanitize_callback' => 'esc_html',
-			]
-		);
-		$wp_customize->add_control(
-			new Separator(
-				$wp_customize,
-				'social_separator',
-				[
-					'settings' => 'social_separator',
-					'section'  => 'contact_info_section',
-				]
-			)
-		);
+			] );
+		$wp_customize->add_control( new Separator( $wp_customize, 'social_separator', [
+			'settings' => 'social_separator',
+			'section'  => 'contact_info_section',
+		] ) );
 		// Facebook
-		$wp_customize->add_setting(
-			'facebook',
+		$wp_customize->add_setting( 'facebook',
 			[
 				'default'           => $this->defaults['facebook'],
 				'transport'         => 'refresh',
 				'sanitize_callback' => 'esc_url',
 			]
 		);
-		$wp_customize->add_control(
-			'facebook',
+		$wp_customize->add_control( 'facebook',
 			[
 				'label'   => __( 'Facebook', 'cl-classified' ),
 				'section' => 'contact_info_section',
@@ -120,16 +96,14 @@ class Contact_Info extends Customizer {
 			]
 		);
 		// Twitter
-		$wp_customize->add_setting(
-			'twitter',
+		$wp_customize->add_setting( 'twitter',
 			[
 				'default'           => $this->defaults['twitter'],
 				'transport'         => 'refresh',
 				'sanitize_callback' => 'esc_url',
 			]
 		);
-		$wp_customize->add_control(
-			'twitter',
+		$wp_customize->add_control( 'twitter',
 			[
 				'label'   => __( 'Twitter', 'cl-classified' ),
 				'section' => 'contact_info_section',
@@ -137,16 +111,14 @@ class Contact_Info extends Customizer {
 			]
 		);
 		// Instagram
-		$wp_customize->add_setting(
-			'instagram',
+		$wp_customize->add_setting( 'instagram',
 			[
 				'default'           => $this->defaults['instagram'],
 				'transport'         => 'refresh',
 				'sanitize_callback' => 'esc_url',
 			]
 		);
-		$wp_customize->add_control(
-			'instagram',
+		$wp_customize->add_control( 'instagram',
 			[
 				'label'   => __( 'Instagram', 'cl-classified' ),
 				'section' => 'contact_info_section',
@@ -154,16 +126,14 @@ class Contact_Info extends Customizer {
 			]
 		);
 		// Linkedin
-		$wp_customize->add_setting(
-			'linkedin',
+		$wp_customize->add_setting( 'linkedin',
 			[
 				'default'           => $this->defaults['linkedin'],
 				'transport'         => 'refresh',
 				'sanitize_callback' => 'esc_url',
 			]
 		);
-		$wp_customize->add_control(
-			'linkedin',
+		$wp_customize->add_control( 'linkedin',
 			[
 				'label'   => __( 'Linkedin', 'cl-classified' ),
 				'section' => 'contact_info_section',
@@ -171,16 +141,14 @@ class Contact_Info extends Customizer {
 			]
 		);
 		// Youtube
-		$wp_customize->add_setting(
-			'youtube',
+		$wp_customize->add_setting( 'youtube',
 			[
 				'default'           => $this->defaults['youtube'],
 				'transport'         => 'refresh',
 				'sanitize_callback' => 'esc_url',
 			]
 		);
-		$wp_customize->add_control(
-			'youtube',
+		$wp_customize->add_control( 'youtube',
 			[
 				'label'   => __( 'Youtube', 'cl-classified' ),
 				'section' => 'contact_info_section',
@@ -188,16 +156,14 @@ class Contact_Info extends Customizer {
 			]
 		);
 		// Pinterest
-		$wp_customize->add_setting(
-			'pinterest',
+		$wp_customize->add_setting( 'pinterest',
 			[
 				'default'           => $this->defaults['pinterest'],
 				'transport'         => 'refresh',
 				'sanitize_callback' => 'esc_url',
 			]
 		);
-		$wp_customize->add_control(
-			'pinterest',
+		$wp_customize->add_control( 'pinterest',
 			[
 				'label'   => __( 'Pinterest', 'cl-classified' ),
 				'section' => 'contact_info_section',
@@ -205,16 +171,14 @@ class Contact_Info extends Customizer {
 			]
 		);
 		// Skype
-		$wp_customize->add_setting(
-			'skype',
+		$wp_customize->add_setting( 'skype',
 			[
 				'default'           => $this->defaults['skype'],
 				'transport'         => 'refresh',
 				'sanitize_callback' => 'esc_url',
 			]
 		);
-		$wp_customize->add_control(
-			'skype',
+		$wp_customize->add_control( 'skype',
 			[
 				'label'   => __( 'Skype', 'cl-classified' ),
 				'section' => 'contact_info_section',

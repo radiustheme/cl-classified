@@ -6,8 +6,10 @@
  */
 
 use RadiusTheme\ClassifiedLite\Constants;
+use RadiusTheme\ClassifiedLite\TGM_Config;
 use RadiusTheme\ClassifiedLite\General;
 use RadiusTheme\ClassifiedLite\Layouts;
+use RadiusTheme\ClassifiedLite\Listing_Functions;
 use RadiusTheme\ClassifiedLite\Scripts;
 use RadiusTheme\ClassifiedLite\Options;
 use RadiusTheme\ClassifiedLite\Customizer\Init;
@@ -31,10 +33,8 @@ final class Includes {
 
 	/**
 	 * Fetch an instance of the class.
-	 *
-	 * @return Includes
 	 */
-	public static function getInstance() {
+	final public static function getInstance() {
 		if ( self::$singleton === false ) {
 			self::$singleton = new self();
 		}
@@ -47,6 +47,7 @@ final class Includes {
 	 */
 	protected function init() {
 		new Constants();
+		new TGM_Config();
 		Options::instance();
 		General::instance();
 		Scripts::instance();
@@ -54,7 +55,11 @@ final class Includes {
 		if ( class_exists( 'WP_Customize_Control' ) ) {
 			Init::instance();
 		}
+		if (class_exists('Rtcl')) {
+			Listing_Functions::instance();
+		}
 	}
+
 }
 
 /**
