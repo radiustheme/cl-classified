@@ -31,5 +31,6 @@ function cl_classified_theme_load() {
 
 define( 'CL_CLASSIFIED_VERSION', '1.7.4' );
 
+require_once 'lib/class-tgm-plugin-activation.php';
 require_once 'inc/init.php';
 require_once 'inc/Customizer/sanitization.php';

@@ -258,6 +258,8 @@ class Scripts {
 	 * @return void
 	 */
 	public function register_scripts() {
+		/* Deregister */
+		wp_deregister_style( 'font-awesome' );
 		// Google fonts
 		wp_register_style( 'cl-classified-gfonts', $this->fonts_url(), [], $this->version );
 		// Style
@@ -380,7 +382,7 @@ class Scripts {
 		ob_start();
 		Helper::requires( 'frontend.php', 'dynamic-styles' );
 		$dynamic_css .= ob_get_clean();
-		$dynamic_css  = $this->optimized_css( $dynamic_css );
+		$dynamic_css = $this->optimized_css( $dynamic_css );
 
 		wp_register_style( 'cl-classified-dynamic', false );
 		wp_enqueue_style( 'cl-classified-dynamic' );
@@ -421,7 +423,7 @@ class Scripts {
 	/**
 	 * Minify CSS by removing comments and unnecessary whitespace.
 	 *
-	 * @param  string $css  The original CSS string.
+	 * @param  string  $css  The original CSS string.
 	 *
 	 * @return string The optimized/minified CSS string.
 	 */
@@ -440,8 +442,8 @@ class Scripts {
 	 *   $base = ".my-wrapper"
 	 *   Result: ".my-wrapper h1 { color: red; } .my-wrapper p { font-size: 14px; }"
 	 *
-	 * @param  string $css  The original CSS string.
-	 * @param  string $base  The wrapper/parent selector to prepend.
+	 * @param  string  $css  The original CSS string.
+	 * @param  string  $base  The wrapper/parent selector to prepend.
 	 *
 	 * @return string The modified CSS with wrapper added.
 	 */

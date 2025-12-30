@@ -27,7 +27,7 @@ class TGM_Config {
 				'slug'     => 'cl-classified-core',
 				'source'   => 'https://radiustheme.net/bundle-plugins/cl-classified/cl-classified-core.zip',
 				'required' => true,
-				'version'  => '1.1.0',
+				'version'  => '2.0.0',
 			],
 			[
 				'name'     => 'RT Framework',
