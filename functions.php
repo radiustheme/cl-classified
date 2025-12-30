@@ -29,7 +29,7 @@ function cl_classified_theme_load() {
 	do_action( 'cl_classified_theme_init' );
 }
 
-define( 'CL_CLASSIFIED_VERSION', '1.7.4' );
+define( 'CL_CLASSIFIED_VERSION', '2.0.0' );
 
 require_once 'lib/class-tgm-plugin-activation.php';
 require_once 'inc/init.php';

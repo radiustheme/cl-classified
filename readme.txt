@@ -6,11 +6,17 @@ Tags: custom-background, custom-logo, custom-menu, featured-images, footer-widge
 Requires at least: 5.5
 Tested up to: 6.9
 Requires PHP: 7.4
-Stable tag: 0.0.3
+Stable tag: 2.0.0
 
 == Description ==
 
-CL Classified is a modern and clean WordPress Theme best suited for real estate website. This theme comes with all necessary features and pages for a Real Estate website.
+CLClassified is a free classified theme that comes with a feature-rich solution to build classified ads and directory websites without any technical expertise. This theme supports both general and niche-specific marketplace like real-estate, restaurants, hotels, job-boards, car listings, and others.
+
+The major strengths of this theme is AI powered features and monetization system. From AI powered drag-and-drop form builder, write with AI, frontend AI integration, AI semantic search to AI image enhancement, you can leverage all these functionalities on your classified listing site. Moreover, you can have multiple revenue streams including single ad promotions like Featured, Top, and Bump Up ads. Also, you can accept payments via PayPal or offline transactions.
+
+For customization, you can use Gutenberg and WordPress block editor. Effortlessly modify the typography, colors, headers, and more of your directory site without coding. Functionalities are enriched with features like advanced search filters, custom fields, CSV import/export, user dashboards, and detailed frontend listing submission. This theme focuses on delivering an engaging and visually appealing experience. So, visitors will enjoy a smooth browsing experience that enhances user engagement.
+
+CLClassified is SEO friendly, responsive, and compatible with popular plugins. However, this theme receives continuous updates to match with the digital trends. So, CLClassified is a perfect choice to launch a modern classified or directory website without any upfront cost.
 
 == Installation ==
 
@@ -82,6 +88,9 @@ Source_2: https://www.pexels.com/photo/blue-suv-parked-in-erbil-urban-setting-28
 All images are used for demo/screenshot purposes only and are not included in the theme package.
 
 == Changelog ==
+
+= 2.0.0 (Dec 30, 2025) =
+* Added Classified Listing plugin compatibility
 
 = 0.0.3 (Dec 22, 2025) =
 * Added unminified version of Bootstrap & Select2
