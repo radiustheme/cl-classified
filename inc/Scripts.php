@@ -258,12 +258,10 @@ class Scripts {
 	 * @return void
 	 */
 	public function register_scripts() {
-		/* Deregister */
-		wp_deregister_style( 'font-awesome' );
 		// Google fonts
 		wp_register_style( 'cl-classified-gfonts', $this->fonts_url(), [], $this->version );
 		// Style
-		wp_register_style( 'font-awesome', Helper::get_css( 'font-awesome-all.min' ), [], $this->version );
+		wp_register_style( 'font-awesome', Helper::get_file( '/assets/font-awesome/css/font-awesome-all.min.css' ), [], $this->version );
 		wp_register_style( 'bootstrap', Helper::get_maybe_rtl_css( 'bootstrap.min' ), [], $this->version );
 		wp_register_style( 'cl-classified-main', Helper::get_maybe_rtl_css( 'main' ), [], $this->version );
 		if ( is_rtl() ) {
