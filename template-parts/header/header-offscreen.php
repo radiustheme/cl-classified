@@ -16,18 +16,20 @@ $custom_logo_id     = get_theme_mod( 'custom_logo' );
 $default_logo       = $custom_logo_id ? wp_get_attachment_image_src( $custom_logo_id, 'full' ) : [
 	Helper::get_img( 'logo.png' ),
 	196,
-	41
+	41,
 ];
 $default_light_logo = $custom_logo_id ? wp_get_attachment_image_src( $custom_logo_id, 'full' ) : [
 	Helper::get_img( 'logo-white.png' ),
 	157,
-	40
+	40,
 ];
 $main_logo          = ( isset( Options::$options['logo'] ) && 0 != Options::$options['logo'] ) ? wp_get_attachment_image_src( Options::$options['logo'], 'full' ) : $default_logo;
 $light_logo         = ( isset( Options::$options['logo_light'] ) && 0 != Options::$options['logo_light'] ) ? wp_get_attachment_image_src( Options::$options['logo_light'], 'full' )
 	: $default_light_logo;
-$mobile_logo        = ( isset( Options::$options['mobile_logo'] ) && 0 != Options::$options['mobile_logo'] ) ? wp_get_attachment_image_src( Options::$options['mobile_logo'],
-	'full' )
+$mobile_logo        = ( isset( Options::$options['mobile_logo'] ) && 0 != Options::$options['mobile_logo'] ) ? wp_get_attachment_image_src(
+	Options::$options['mobile_logo'],
+	'full'
+)
 	: '';
 
 if ( ( isset( Options::$options['logo'] ) && 0 != Options::$options['logo'] ) && ! ( isset( Options::$options['logo_light'] ) && 0 != Options::$options['logo_light'] ) ) {
@@ -46,27 +48,27 @@ if ( Options::$has_tr_header ) {
 ?>
 
 <div class="rt-mobile-menu">
-    <div class="mobile-menu-bar">
-        <div class="mobile-logo-area <?php echo esc_attr( ! empty( $mobile_logo ) ? 'has-mobile-logo' : '' ) ?>">
-		    <?php if ( ! empty( $logo ) ): ?>
-                <a class="custom-logo site-main-logo" href="<?php echo esc_url( home_url( '/' ) ); ?>">
-                    <img class="img-fluid" src="<?php echo esc_url( $logo[0] ); ?>" width="<?php echo esc_attr( $logo[1] ); ?>" height="<?php echo esc_attr( $logo[2] ); ?>"
-                         alt="<?php echo esc_attr( $site_name ); ?>">
-                </a>
-		    <?php else: ?>
-                <h1 class="site-title site-main-logo">
-                    <a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php esc_attr_e( 'Home', 'cl-classified' ); ?>" rel="home">
-					    <?php echo esc_html( $site_name ); ?>
-                    </a>
-                </h1>
-		    <?php endif; ?>
-		    <?php if ( ! empty( $mobile_logo ) ) : ?>
-                <a class="custom-logo site-mobile-logo" href="<?php echo esc_url( home_url( '/' ) ); ?>">
-                    <img class="img-fluid" src="<?php echo esc_url( $mobile_logo[0] ); ?>" width="<?php echo esc_attr( $mobile_logo[1] ); ?>"
-                         height="<?php echo esc_attr( $mobile_logo[2] ); ?>" alt="<?php echo esc_attr( $site_name ); ?>">
-                </a>
-		    <?php endif; ?>
-        </div>
+	<div class="mobile-menu-bar">
+		<div class="mobile-logo-area <?php echo esc_attr( ! empty( $mobile_logo ) ? 'has-mobile-logo' : '' ); ?>">
+			<?php if ( ! empty( $logo ) ) : ?>
+				<a class="custom-logo site-main-logo" href="<?php echo esc_url( home_url( '/' ) ); ?>">
+					<img class="img-fluid" src="<?php echo esc_url( $logo[0] ); ?>" width="<?php echo esc_attr( $logo[1] ); ?>" height="<?php echo esc_attr( $logo[2] ); ?>"
+						 alt="<?php echo esc_attr( $site_name ); ?>">
+				</a>
+			<?php else : ?>
+				<h1 class="site-title site-main-logo">
+					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php esc_attr_e( 'Home', 'cl-classified' ); ?>" rel="home">
+						<?php echo esc_html( $site_name ); ?>
+					</a>
+				</h1>
+			<?php endif; ?>
+			<?php if ( ! empty( $mobile_logo ) ) : ?>
+				<a class="custom-logo site-mobile-logo" href="<?php echo esc_url( home_url( '/' ) ); ?>">
+					<img class="img-fluid" src="<?php echo esc_url( $mobile_logo[0] ); ?>" width="<?php echo esc_attr( $mobile_logo[1] ); ?>"
+						 height="<?php echo esc_attr( $mobile_logo[2] ); ?>" alt="<?php echo esc_attr( $site_name ); ?>">
+				</a>
+			<?php endif; ?>
+		</div>
 		<?php
 		$html = '';
 		if ( Options::$options['header_btn_txt'] && Options::$options['header_btn_url'] ) {
@@ -85,11 +87,11 @@ if ( Options::$has_tr_header ) {
 			printf( '<div class="header-mobile-icons">%s</div>', $html );
 		}
 		?>
-        <span class="sidebarBtn"><span></span></span>
-    </div>
-    <div class="rt-slide-nav">
-        <div class="offscreen-navigation">
+		<span class="sidebarBtn" tabindex="0" role="button" aria-label="Open Sidebar Navigation"><span></span></span>
+	</div>
+	<div class="rt-slide-nav">
+		<div class="offscreen-navigation">
 			<?php wp_nav_menu( $nav_menu_args ); ?>
-        </div>
-    </div>
+		</div>
+	</div>
 </div>
