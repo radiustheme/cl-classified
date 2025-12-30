@@ -1129,7 +1129,7 @@ blockquote cite {
 
 .main-header-inner .site-branding {
 	min-width: 150px;
-	max-width: 200px;
+	max-width: 240px;
 }
 
 .main-header-inner .header-icon-area {
@@ -1429,6 +1429,7 @@ blockquote cite {
 	background: var(--rtcl-primary-color);
 	color: #ffffff;
 	border: 1px solid transparent;
+	text-decoration: none;
 }
 
 .header-icon-area .header-btn-area .header-btn:hover i {
@@ -2004,10 +2005,12 @@ body.slidemenuon .mobile-menu-bar span.sidebarBtn span:after {
 .widget.widget_tag_cloud a:hover {
 	background-color: var(--rtcl-primary-color);
 	border-color: var(--rtcl-primary-color);
+	text-decoration: none;
 }
 
 .main-footer .widget.widget_tag_cloud a:hover {
 	color: #ffffff;
+	text-decoration: none;
 }
 
 /*---------------------------------------------
@@ -2295,6 +2298,7 @@ body.slidemenuon .mobile-menu-bar span.sidebarBtn span:after {
 
 .post-each .entry-title a:hover {
 	color: var(--rtcl-primary-color);
+	text-decoration: none;
 }
 
 .post-each .post-meta {
@@ -3994,6 +3998,10 @@ a.scrollToTop:focus {
 	margin-bottom: 8px;
 }
 
+.rtcl .rtcl-listings .rtcl-listing-item .item-content .rtcl-listing-meta-data li a:hover {
+	text-decoration: none;
+}
+
 .rtcl .rtcl-listings .rtcl-listing-item .item-content .rtcl-listing-meta-data li i,
 .rtcl .rtcl-listings .rtcl-listing-item .item-content .rtcl-listing-meta-data li svg {
 	margin-right: 5px;
@@ -4157,6 +4165,10 @@ a.scrollToTop:focus {
 
 .rtcl .rtcl-list-view .rtcl-listing-item .item-content .rtcl-listing-meta-data li {
 	margin-right: 15px;
+}
+
+.rtcl .rtcl-list-view .rtcl-listing-item .item-content .rtcl-listing-meta-data li a:hover {
+	text-decoration: none;
 }
 
 @media screen and (min-width: 768px) {
@@ -4485,6 +4497,10 @@ a.scrollToTop:focus {
 .rtcl-single-listing-details .rtcl-listing-meta .rtcl-listing-meta-data li {
 	color: #797f89;
 	margin-right: 15px;
+}
+
+.rtcl-single-listing-details .rtcl-listing-meta .rtcl-listing-meta-data li a:hover {
+	text-decoration: none;
 }
 
 .rtcl-single-listing-details .rtcl-listing-meta .rtcl-listing-meta-data li svg,

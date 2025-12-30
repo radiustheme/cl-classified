@@ -21,7 +21,7 @@ class Default_Data {
 			'logo'                           => '',
 			'logo_light'                     => '',
 			'mobile_logo'                    => '',
-			'logo_width'                     => '200px',
+			'logo_width'                     => '240px',
 			'banner_image'                   => '',
 			'back_to_top'                    => 1,
 			'remove_admin_bar'               => 0,

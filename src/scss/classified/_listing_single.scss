@@ -76,6 +76,12 @@
         color: $bodyColor;
         margin-right: 15px;
 
+        a {
+          &:hover {
+            text-decoration: none;
+          }
+        }
+
         svg,
         i {
           margin-right: 6px;

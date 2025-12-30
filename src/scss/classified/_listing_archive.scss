@@ -160,6 +160,12 @@
           li {
             margin-bottom: 8px;
 
+            a {
+              &:hover {
+                text-decoration: none;
+              }
+            }
+
             i,
             svg {
               margin-right: 5px;

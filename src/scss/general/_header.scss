@@ -16,7 +16,7 @@
 
   .site-branding {
     min-width: 150px;
-    max-width: 200px;
+    max-width: 240px;
   }
 
   .header-icon-area {
@@ -324,6 +324,7 @@
         background: var(--rtcl-primary-color);
         color: $white;
         border: 1px solid transparent;
+        text-decoration: none;
 
         i {
           background-color: $white;

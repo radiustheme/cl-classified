@@ -50,6 +50,12 @@
         .rtcl-listing-meta-data {
           li {
             margin-right: 15px;
+
+            a {
+              &:hover {
+                text-decoration: none;
+              }
+            }
           }
         }
       }
