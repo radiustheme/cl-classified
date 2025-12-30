@@ -2,7 +2,7 @@
 Contributors: techlabpro1
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
-Tags: custom-background, custom-logo, custom-menu, featured-images, footer-widgets, translation-ready, left-sidebar, right-sidebar, blog
+Tags: custom background, two-columns, three-columns, classified listing, directory, left-sidebar, right-sidebar, real-estate, restaurants, hotels, job-boards, custom-colors, custom-menu, featured-images, footer-widgets, full-width-template, sticky-post, theme-options, threaded-comments, translation-ready, blog
 Requires at least: 5.5
 Tested up to: 6.9
 Requires PHP: 7.4
