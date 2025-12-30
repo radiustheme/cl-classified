@@ -11,7 +11,8 @@ use RadiusTheme\ClassifiedLite\Options;
 </div><!-- #content -->
 <?php
 $footer_style = Options::$footer_style ? Options::$footer_style : 1;
-get_template_part( 'template-parts/footer/footer', $footer_style ); ?>
+get_template_part( 'template-parts/footer/footer', $footer_style );
+?>
 </div><!-- #page -->
 <?php wp_footer(); ?>
 </body>

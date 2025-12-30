@@ -25,25 +25,17 @@ class TGM_Config {
 			[
 				'name'     => 'CL Classified Core',
 				'slug'     => 'cl-classified-core',
-				'source'   => 'cl-classified-core.zip',
+				'source'   => 'https://radiustheme.net/bundle-plugins/cl-classified/cl-classified-core.zip',
 				'required' => true,
-				'version'  => '1.1.0'
+				'version'  => '1.1.0',
 			],
 			[
 				'name'     => 'RT Framework',
 				'slug'     => 'rt-framework',
-				'source'   => 'rt-framework.zip',
+				'source'   => 'https://radiustheme.net/bundle-plugins/cl-classified/rt-framework.zip',
 				'required' => true,
-				'version'  => '3.0'
+				'version'  => '3.0',
 			],
-			[
-				'name'     => 'RT Demo Importer',
-				'slug'     => 'rt-demo-importer',
-				'source'   => 'rt-demo-importer.zip',
-				'required' => false,
-				'version'  => '6.1.0'
-			],
-
 			// Repository
 			[
 				'name'     => 'Classified Listing',
@@ -58,6 +50,11 @@ class TGM_Config {
 			[
 				'name'     => 'Elementor Page Builder',
 				'slug'     => 'elementor',
+				'required' => false,
+			],
+			[
+				'name'     => 'Easy Demo Importer',
+				'slug'     => 'easy-demo-importer',
 				'required' => false,
 			],
 		];

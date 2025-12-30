@@ -28,7 +28,9 @@ class Init {
 	private function __construct() {
 		$this->includes();
 	}
-
+	/**
+	 * @return self|null
+	 */
 	public static function instance() {
 		if ( null == self::$instance ) {
 			self::$instance = new self();
@@ -36,7 +38,11 @@ class Init {
 
 		return self::$instance;
 	}
-
+	/**
+	 * Include all customizer settings
+	 *
+	 * @return void
+	 */
 	private function includes() {
 		new General();
 		new Header();

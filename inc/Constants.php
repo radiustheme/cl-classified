@@ -15,7 +15,11 @@ class Constants {
 	public static $theme_base_dir;
 	public static $theme_inc_dir;
 	public static $theme_plugins_dir;
-
+	/**
+	 * Constructor
+	 *
+	 * @return void
+	 */
 	public function __construct() {
 		$theme_data = wp_get_theme( get_template() );
 
