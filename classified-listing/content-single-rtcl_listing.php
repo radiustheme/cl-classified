@@ -16,7 +16,7 @@ defined( 'ABSPATH' ) || exit;
 global $listing;
 
 if ( post_password_required() ) {
-	echo get_the_password_form(); // WPCS: XSS ok.
+	Functions::print_html( get_the_password_form() ); // WPCS: XSS ok.
 
 	return;
 }
@@ -24,20 +24,20 @@ $sidebar_position = Functions::get_option_item( 'rtcl_single_listing_settings', 
 $sidebar_class    = [
 	'col-lg-3',
 	'col-sm-12',
-	'order-2'
+	'order-2',
 ];
 $content_class    = [
 	'col-lg-9',
 	'col-sm-12',
 	'order-1',
-	'listing-content'
+	'listing-content',
 ];
-if ( $sidebar_position == "left" ) {
+if ( $sidebar_position == 'left' ) {
 	$sidebar_class   = array_diff( $sidebar_class, [ 'order-2' ] );
 	$sidebar_class[] = 'order-1';
 	$content_class   = array_diff( $content_class, [ 'order-1' ] );
 	$content_class[] = 'order-2';
-} else if ( $sidebar_position == "bottom" ) {
+} elseif ( $sidebar_position == 'bottom' ) {
 	$content_class   = array_diff( $content_class, [ 'col-lg-9', 'col-sm-12' ] );
 	$sidebar_class   = array_diff( $sidebar_class, [ 'col-lg-3', 'col-sm-12' ] );
 	$content_class[] = 'col-sm-12';
@@ -51,32 +51,32 @@ if ( $sidebar_position == "left" ) {
 do_action( 'rtcl_before_single_listing' );
 
 ?>
-    <div id="rtcl-listing-<?php the_ID(); ?>" <?php Functions::listing_class( '', $listing ); ?>>
+	<div id="rtcl-listing-<?php the_ID(); ?>" <?php Functions::listing_class( '', $listing ); ?>>
 
-        <div class="row">
-            <!-- Main content -->
-            <div class="<?php echo esc_attr( implode( ' ', $content_class ) ); ?>">
-                <!-- Gallery/Image -->
+		<div class="row">
+			<!-- Main content -->
+			<div class="<?php echo esc_attr( implode( ' ', $content_class ) ); ?>">
+				<!-- Gallery/Image -->
 				<?php $listing->the_gallery(); ?>
 
-                <div class="rtcl-single-listing-details">
+				<div class="rtcl-single-listing-details">
 					<?php do_action( 'rtcl_single_listing_content' ); ?>
-                    <div class="rtcl-main-content-wrapper">
-                        <!-- Price -->
-						<?php if ( $listing->can_show_price() ): ?>
-                            <div class="rtcl-price-wrap price-in-mobile">
-								<?php echo $listing->get_price_html(); ?>
-                            </div>
+					<div class="rtcl-main-content-wrapper">
+						<!-- Price -->
+						<?php if ( $listing->can_show_price() ) : ?>
+							<div class="rtcl-price-wrap price-in-mobile">
+								<?php Functions::print_html( $listing->get_price_html() ); ?>
+							</div>
 						<?php endif; ?>
 
-                        <!-- Description -->
-                        <div class="rtcl-listing-description"><?php $listing->the_content(); ?></div>
+						<!-- Description -->
+						<div class="rtcl-listing-description"><?php $listing->the_content(); ?></div>
 
-						<?php if ( $sidebar_position === "bottom" ) : ?>
-                            <!-- Sidebar -->
+						<?php if ( $sidebar_position === 'bottom' ) : ?>
+							<!-- Sidebar -->
 							<?php do_action( 'rtcl_single_listing_sidebar' ); ?>
 						<?php endif; ?>
-                        <!--  Inner Sidebar -->
+						<!--  Inner Sidebar -->
 						<?php do_action( 'rtcl_single_listing_inner_sidebar', $listing ); ?>
 						<?php
 						if ( Functions::isEnableFb() ) {
@@ -85,42 +85,42 @@ do_action( 'rtcl_before_single_listing' );
 							$listing->the_custom_fields();
 						}
 						?>
-                        <div class="rtcl-single-actions">
-							<?php echo Functions::get_listing_tag( $listing->get_id() ); ?>
+						<div class="rtcl-single-actions">
+							<?php Functions::print_html( Functions::get_listing_tag( $listing->get_id() ) ); ?>
 							<?php $listing->the_actions(); ?>
-                        </div>
-                    </div>
-                </div>
+						</div>
+					</div>
+				</div>
 
-                <!-- MAP  -->
+				<!-- MAP  -->
 				<?php do_action( 'rtcl_single_listing_content_end', $listing ); ?>
 
-                <!-- Business Hours  -->
-				<?php if ( ! empty( BusinessHoursController::get_business_hours( $listing->get_id() ) ) ): ?>
-                    <div class="content-block-gap"></div>
-                    <div class="site-content-block classified-single-business-hour">
-                        <div class="main-content">
-                            <h3 class="main-title"><?php esc_html_e( 'Business Hours', 'cl-classified' ); ?></h3>
+				<!-- Business Hours  -->
+				<?php if ( ! empty( BusinessHoursController::get_business_hours( $listing->get_id() ) ) ) : ?>
+					<div class="content-block-gap"></div>
+					<div class="site-content-block classified-single-business-hour">
+						<div class="main-content">
+							<h3 class="main-title"><?php esc_html_e( 'Business Hours', 'cl-classified' ); ?></h3>
 							<?php do_action( 'rtcl_single_listing_business_hours' ); ?>
-                        </div>
-                    </div>
+						</div>
+					</div>
 				<?php endif; ?>
 
-                <!-- Social Profile  -->
-				<?php do_action( 'rtcl_single_listing_social_profiles' ) ?>
+				<!-- Social Profile  -->
+				<?php do_action( 'rtcl_single_listing_social_profiles' ); ?>
 
-                <!-- Related Listing -->
+				<!-- Related Listing -->
 				<?php $listing->the_related_listings(); ?>
 
-                <!-- Review  -->
-				<?php do_action( 'rtcl_single_listing_review' ) ?>
-            </div>
+				<!-- Review  -->
+				<?php do_action( 'rtcl_single_listing_review' ); ?>
+			</div>
 
-			<?php if ( in_array( $sidebar_position, [ 'left', 'right' ] ) ) : ?>
-                <!-- Sidebar -->
+			<?php if ( in_array( $sidebar_position, [ 'left', 'right' ], true ) ) : ?>
+				<!-- Sidebar -->
 				<?php do_action( 'rtcl_single_listing_sidebar' ); ?>
 			<?php endif; ?>
-        </div>
-    </div>
+		</div>
+	</div>
 
 <?php do_action( 'rtcl_after_single_listing' ); ?>

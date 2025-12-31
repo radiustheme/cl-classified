@@ -33,65 +33,68 @@ if ( count( $fields ) ) :
 		}
 		$icon = $field->getIconData();
 		if ( ! empty( $value ) ) { ?>
-            <li class="list-group-item rtcl-cf-<?php echo esc_attr( $field->getElement() ) ?>">
-				<?php if ( $field->getElement() === 'url' ) {
-					$nofollow = ! empty( $field->getNofollow() ) ? ' rel="nofollow"' : ''; ?>
-                    <a href="<?php echo esc_url( $value ); ?>"
-                       target="<?php echo esc_attr( $field->getTarget() ) ?>"<?php echo esc_html( $nofollow ) ?>><?php echo esc_html( $field->getLabel() ) ?></a>
-				<?php } else {
+			<li class="list-group-item rtcl-cf-<?php echo esc_attr( $field->getElement() ); ?>">
+				<?php
+				if ( $field->getElement() === 'url' ) {
+					$nofollow = ! empty( $field->getNofollow() ) ? ' rel="nofollow"' : '';
+					?>
+					<a href="<?php echo esc_url( $value ); ?>"
+					   target="<?php echo esc_attr( $field->getTarget() ); ?>"<?php echo esc_html( $nofollow ); ?>><?php echo esc_html( $field->getLabel() ); ?></a>
+					<?php
+				} else {
 					if ( ( ! empty( $icon['type'] ) && 'class' === $icon['type'] && ! empty( $icon['class'] ) ) || ! empty( $field->getLabel() ) ) {
 						echo '<span class="cfp-label">';
 						if ( ! empty( $icon['type'] ) && 'class' === $icon['type'] && ! empty( $icon['class'] ) ) {
 							?>
-                            <i class="<?php echo esc_attr( $icon['class'] ); ?>"></i>&nbsp;
+							<i class="<?php echo esc_attr( $icon['class'] ); ?>"></i>&nbsp;
 							<?php
 						}
 						if ( ! empty( $field->getLabel() ) ) {
 							?>
-                            <span><?php echo esc_html( $field->getLabel() ) ?></span>:
+							<span><?php echo esc_html( $field->getLabel() ); ?></span>:
 							<?php
 						}
 						echo '</span>';
 					}
 					?>
-                    <span class="cfp-value">
-                        <?php
-                        if ( 'repeater' === $field->getElement() ) {
-	                        $repeaterFields = $field->getData( 'fields', [] );
-	                        if ( ! empty( $repeaterFields ) && is_array( $value ) ) {
-		                        ?>
-                                <div class="rtcl-cfp-repeater-items">
+					<span class="cfp-value">
+						<?php
+						if ( 'repeater' === $field->getElement() ) {
+							$repeaterFields = $field->getData( 'fields', [] );
+							if ( ! empty( $repeaterFields ) && is_array( $value ) ) {
+								?>
+								<div class="rtcl-cfp-repeater-items">
 								<?php
 								foreach ( $value as $rValueIndex => $rValues ) {
 									?>
-                                    <div class="rtcl-cfp-repeater-item">
+									<div class="rtcl-cfp-repeater-item">
 										<?php
 										foreach ( $repeaterFields as $repeaterField ) {
 											$rField = new FBField( $repeaterField );
 											$rValue = 'file' === $rField->getElement() ? ( ! empty( $rValues[ $rField->getName() ] )
-											                                               && is_array( $rValues[ $rField->getName() ] )
+																						   && is_array( $rValues[ $rField->getName() ] )
 												? FBHelper::getFieldAttachmentFiles( $listing_id, $rField->getField(), $rValues[ $rField->getName() ], true )
 												: [] ) : ( $rValues[ $rField->getName() ] ?? '' );
 											?>
-                                            <div class="rtcl-cfp-repeater-field">
+											<div class="rtcl-cfp-repeater-field">
 												<?php
 												$rIcon = $rField->getIconData();
 												if ( ( ! empty( $rIcon['type'] ) && 'class' === $rIcon['type'] && ! empty( $rIcon['class'] ) )
-												     || ! empty( $rField->getLabel() )
+													 || ! empty( $rField->getLabel() )
 												) {
 													?>
-                                                    <div class="rtcl-cfp-label-wrap">
+													<div class="rtcl-cfp-label-wrap">
 														<?php
 														if ( ! empty( $rIcon['type'] ) && 'class' === $rIcon['type'] && ! empty( $rIcon['class'] ) ) {
 															?>
-                                                            <div class="rtcl-field-icon">
-                                                                <i class="<?php echo esc_attr( $rIcon['class'] ); ?>"></i>
+															<div class="rtcl-field-icon">
+																<i class="<?php echo esc_attr( $rIcon['class'] ); ?>"></i>
 															</div>
 															<?php
 														}
 														if ( ! empty( $rField->getLabel() ) ) {
 															?>
-                                                            <div class='cfp-label'><?php echo esc_html( $rField->getLabel() ); ?>:</div>
+															<div class='cfp-label'><?php echo esc_html( $rField->getLabel() ); ?>:</div>
 															<?php
 														}
 														?>
@@ -109,32 +112,40 @@ if ( count( $fields ) ) :
 								}
 								?>
 							</div>
-		                        <?php
-	                        }
-                        } else {
-	                        Functions::print_html( FBHelper::getFormattedFieldHtml( $value, $field ) );
-                        }
-                        ?>
+								<?php
+							}
+						} else {
+							Functions::print_html( FBHelper::getFormattedFieldHtml( $value, $field ) );
+						}
+						?>
 					</span>
 				<?php } ?>
-            </li>
-		<?php }
+			</li>
+			<?php
+		}
 	}
 	$fieldData = ob_get_clean();
 	if ( $fieldData ) :
 		if ( Functions::is_listing() ) {
 			?>
-            <div class="rtcl-single-custom-fields">
-                <div class="rtcl-widget-title2">
-                    <h3><?php esc_html_e( 'Overview', 'cl-classified' ); ?></h3>
-                </div>
-				<?php printf( '<ul class="list-group list-group-flush custom-field-properties">%s</ul>',
+			<div class="rtcl-single-custom-fields">
+				<div class="rtcl-widget-title2">
+					<h3><?php esc_html_e( 'Overview', 'cl-classified' ); ?></h3>
+				</div>
+				<?php
+				printf(
+					'<ul class="list-group list-group-flush custom-field-properties">%s</ul>',
 					// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-					$fieldData ); ?>
-            </div>
+					$fieldData
+				);
+				?>
+			</div>
 			<?php
 		} else {
+            // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			printf( '<ul class="list-group list-group-flush mb-3 custom-field-properties">%s</ul>', $fieldData );
 		}
-	endif; ?>
-<?php endif;
+	endif;
+	?>
+	<?php
+endif;

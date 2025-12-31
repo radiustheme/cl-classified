@@ -22,10 +22,10 @@ do_action( 'rtcl_before_content_wrapper' );
 do_action( 'rtcl_before_main_content' );
 
 ?>
-<?php if ( Options::$options['listing_archive_title'] ): ?>
-    <header class="rtcl-listing-header">
+<?php if ( Options::$options['listing_archive_title'] ) : ?>
+	<header class="rtcl-listing-header">
 		<?php if ( apply_filters( 'rtcl_show_page_title', true ) ) : ?>
-            <h1 class="rtcl-listings-header-title page-title"><?php Functions::page_title(); ?></h1>
+			<h1 class="rtcl-listings-header-title page-title"><?php Functions::page_title(); ?></h1>
 		<?php endif; ?>
 
 		<?php
@@ -37,7 +37,7 @@ do_action( 'rtcl_before_main_content' );
 		 */
 		do_action( 'rtcl_archive_description' );
 		?>
-    </header>
+	</header>
 <?php endif; ?>
 
 <?php
@@ -49,7 +49,6 @@ if ( rtcl()->wp_query()->have_posts() ) {
 	 *
 	 * @hooked TemplateHooks::output_all_notices() - 10
 	 * @hooked TemplateHooks::listings_actions - 20
-	 *
 	 */
 	do_action( 'rtcl_before_listing_loop' );
 
@@ -61,7 +60,8 @@ if ( rtcl()->wp_query()->have_posts() ) {
 	 */
 	do_action( 'rtcl_listing_loop_prepend_data' );
 
-	while ( rtcl()->wp_query()->have_posts() ) : rtcl()->wp_query()->the_post();
+	while ( rtcl()->wp_query()->have_posts() ) :
+		rtcl()->wp_query()->the_post();
 
 		/**
 		 * Hook: rtcl_listing_loop.

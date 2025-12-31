@@ -17,7 +17,7 @@ do_action( 'rtcl_before_content_wrapper' );
 ?>
 <?php
 /**
- * rtcl_before_main_content hook.
+ * Hook: rtcl_before_main_content.
  *
  * @hooked rtcl_output_content_wrapper - 10 (outputs opening divs for the content)
  * @hooked rtcl_breadcrumb - 20

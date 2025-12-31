@@ -5,7 +5,6 @@
  * @version       1.1.4
  */
 
-use RadiusTheme\ClassifiedLite\Helper;
 use Rtcl\Helpers\Functions;
 
 global $listing;
@@ -14,12 +13,12 @@ $sidebar_position = Functions::get_option_item( 'rtcl_single_listing_settings', 
 $sidebar_class    = [
 	'col-lg-3',
 	'col-sm-12',
-	'order-2'
+	'order-2',
 ];
-if ( $sidebar_position == "left" ) {
+if ( $sidebar_position == 'left' ) {
 	$sidebar_class   = array_diff( $sidebar_class, [ 'order-2' ] );
 	$sidebar_class[] = 'order-1';
-} else if ( $sidebar_position == "bottom" ) {
+} elseif ( $sidebar_position == 'bottom' ) {
 	$sidebar_class   = array_diff( $sidebar_class, [ 'col-lg-3', 'col-sm-12' ] );
 	$sidebar_class[] = 'rtcl-listing-bottom-sidebar';
 }
@@ -27,16 +26,19 @@ if ( $sidebar_position == "left" ) {
 
 <!-- Seller / User Information -->
 <div class="<?php echo esc_attr( implode( ' ', $sidebar_class ) ); ?>">
-    <div class="listing-sidebar">
-        <!-- Price -->
-		<?php if ( $listing->can_show_price() ): ?>
-            <div class="rtcl-price-wrap price-in-desktop">
-				<?php echo $listing->get_price_html(); ?>
-            </div>
+	<div class="listing-sidebar">
+		<!-- Price -->
+		<?php if ( $listing->can_show_price() ) : ?>
+			<div class="rtcl-price-wrap price-in-desktop">
+				<?php
+                // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				echo $listing->get_price_html();
+				?>
+			</div>
 		<?php endif; ?>
 		<?php $listing->the_user_info(); ?>
 		<?php do_action( 'rtcl_after_single_listing_sidebar', $listing->get_id() ); ?>
-    </div>
+	</div>
 	<?php
 	/**
 	 * Hook: rtcl_sidebar.

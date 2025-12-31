@@ -22,14 +22,14 @@ do_action( 'rtcl_before_content_wrapper' );
 do_action( 'rtcl_before_main_content' );
 ?>
 
-<?php if ( Options::$options['listing_archive_title'] ): ?>
-    <header class="rtcl-stores-header">
+<?php if ( Options::$options['listing_archive_title'] ) : ?>
+	<header class="rtcl-stores-header">
 		<?php if ( apply_filters( 'rtcl_store_show_archive_page_title', true ) ) : ?>
-            <h1 class="rtcl-stores-header-title page-title"><?php StoreFunctions::page_title(); ?></h1>
+			<h1 class="rtcl-stores-header-title page-title"><?php StoreFunctions::page_title(); ?></h1>
 		<?php endif; ?>
 
 		<?php do_action( 'rtcl_archive_description' ); ?>
-    </header>
+	</header>
 <?php endif; ?>
 
 <?php
@@ -41,13 +41,13 @@ if ( rtcl()->wp_query()->have_posts() ) {
 	 *
 	 * @hooked TemplateHooks::output_all_notices() - 10
 	 * @hooked TemplateHooks::listings_actions - 20
-	 *
 	 */
 	do_action( 'rtcl_before_store_loop' );
 
 
 	StoreFunctions::store_loop_start();
-	while ( rtcl()->wp_query()->have_posts() ) : rtcl()->wp_query()->the_post();
+	while ( rtcl()->wp_query()->have_posts() ) :
+		rtcl()->wp_query()->the_post();
 
 		/**
 		 * Hook: rtcl_listing_loop.
