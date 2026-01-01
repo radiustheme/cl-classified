@@ -9,10 +9,13 @@
 
 get_header();
 ?>
-    <div id="primary" class="elementor-page-content">
-		<?php while ( have_posts() ) :
+	<div id="primary" class="elementor-page-content">
+		<?php
+		while ( have_posts() ) :
 			the_post();
 			the_content();
-		endwhile; ?>
-    </div>
-<?php get_footer();
+		endwhile;
+		?>
+	</div>
+<?php
+get_footer();

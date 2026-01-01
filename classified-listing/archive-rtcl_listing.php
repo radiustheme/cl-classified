@@ -42,24 +42,19 @@ do_action( 'rtcl_before_main_content' );
 
 <?php
 
+/**
+ * Hook: rtcl_before_listing_loop.
+ *
+ * @hooked TemplateHooks::output_all_notices() - 10
+ * @hooked TemplateHooks::listings_actions - 20
+ */
+do_action( 'rtcl_before_listing_loop' );
+
+Functions::listing_loop_start();
+
+do_action( 'rtcl_listing_loop_prepend_data' );
+
 if ( rtcl()->wp_query()->have_posts() ) {
-
-	/**
-	 * Hook: rtcl_before_listing_loop.
-	 *
-	 * @hooked TemplateHooks::output_all_notices() - 10
-	 * @hooked TemplateHooks::listings_actions - 20
-	 */
-	do_action( 'rtcl_before_listing_loop' );
-
-
-	Functions::listing_loop_start();
-
-	/**
-	 * Prepend listings
-	 */
-	do_action( 'rtcl_listing_loop_prepend_data' );
-
 	while ( rtcl()->wp_query()->have_posts() ) :
 		rtcl()->wp_query()->the_post();
 
@@ -71,29 +66,11 @@ if ( rtcl()->wp_query()->have_posts() ) {
 		Functions::get_template_part( 'content', 'listing' );
 
 	endwhile;
+}
 
-	Functions::listing_loop_end();
+Functions::listing_loop_end();
 
-	/**
-	 * Hook: rtcl_after_listing_loop.
-	 *
-	 * @hooked TemplateHook::pagination() - 10
-	 */
-	do_action( 'rtcl_after_listing_loop' );
-} else {
-
-	/**
-	 * Prepend listings
-	 */
-	ob_start();
-	do_action( 'rtcl_listing_loop_prepend_data' );
-	$listing_loop_prepend_data = ob_get_clean();
-	if ( $listing_loop_prepend_data ) {
-		Functions::listing_loop_start();
-		echo wp_kses_post( $listing_loop_prepend_data );
-		Functions::listing_loop_end();
-	}
-
+if ( ! rtcl()->wp_query()->have_posts() ) {
 	/**
 	 * Hook: rtl_no_listings_found.
 	 *
@@ -101,6 +78,13 @@ if ( rtcl()->wp_query()->have_posts() ) {
 	 */
 	do_action( 'rtcl_no_listings_found' );
 }
+
+/**
+ * Hook: rtcl_after_listing_loop.
+ *
+ * @hooked TemplateHook::pagination() - 10
+ */
+do_action( 'rtcl_after_listing_loop' );
 
 /**
  * Hook: rtcl_after_main_content.

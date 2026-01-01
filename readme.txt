@@ -2,11 +2,11 @@
 Contributors: techlabpro1
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
-Tags: custom background, two-columns, three-columns, classified listing, directory, left-sidebar, right-sidebar, real-estate, restaurants, hotels, job-boards, custom-colors, custom-menu, featured-images, footer-widgets, full-width-template, sticky-post, theme-options, threaded-comments, translation-ready, blog
+Tags: two-columns, three-columns, grid-layout, accessibility-ready, left-sidebar, right-sidebar, post-formats, rtl-language-support, food-and-drink, entertainment, custom-colors, custom-logo, custom-menu, featured-images, footer-widgets, full-width-template, sticky-post, theme-options, threaded-comments, translation-ready, blog
 Requires at least: 5.5
 Tested up to: 6.9
 Requires PHP: 7.4
-Stable tag: 2.0.0
+Stable tag: 2.0.1
 
 == Description ==
 
@@ -88,6 +88,10 @@ Source_2: https://www.pexels.com/photo/blue-suv-parked-in-erbil-urban-setting-28
 All images are used for demo/screenshot purposes only and are not included in the theme package.
 
 == Changelog ==
+
+= 2.0.1 (Jan 01, 2026) =
+* Fixed: No listing found empty issue
+* Fixed: Theme Check plugin compiles issues
 
 = 2.0.0 (Dec 30, 2025) =
 * Added Classified Listing plugin compatibility
