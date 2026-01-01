@@ -15,14 +15,21 @@ class Customizer {
 	// Get our default values
 	protected $defaults;
 	protected static $instance = null;
-
+	/**
+	 * Create a constructor.
+	 * Register the sections and controls.
+	 *
+	 * @return void
+	 */
 	public function __construct() {
 		// Register Panels
 		add_action( 'customize_register', [ $this, 'add_customizer_panels' ] );
 		// Register sections
 		add_action( 'customize_register', [ $this, 'add_customizer_sections' ] );
 	}
-
+	/**
+	 * @return self|null
+	 */
 	public static function instance() {
 		if ( null == self::$instance ) {
 			self::$instance = new self();
@@ -30,13 +37,21 @@ class Customizer {
 
 		return self::$instance;
 	}
-
+	/**
+	 * @return void
+	 */
 	public function populated_default_data() {
 		$this->defaults = Default_Data::default_values();
 	}
 
 	/**
-	 * Customizer Panels
+	 * Add customizer panels.
+	 *
+	 * Adds panels for layout and color settings to the WordPress Customizer.
+	 *
+	 * @param \WP_Customize_Manager $wp_customize The Customizer object.
+	 *
+	 * @return void
 	 */
 	public function add_customizer_panels( $wp_customize ) {
 		// Layout Panel
@@ -60,7 +75,11 @@ class Customizer {
 	}
 
 	/**
-	 * Customizer sections
+	 * Add customizer section.
+	 *
+	 * @param \WP_Customize_Manager $wp_customize The Customizer object.
+	 *
+	 * @return void
 	 */
 	public function add_customizer_sections( $wp_customize ) {
 		// Rename the default Colors section
