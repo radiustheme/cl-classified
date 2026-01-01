@@ -9,7 +9,7 @@ use RadiusTheme\ClassifiedLite\Helper;
 use RadiusTheme\ClassifiedLite\Options;
 
 if ( ! defined( 'ABSPATH' ) ) {
-    exit; // Exit if accessed directly
+	exit; // Exit if accessed directly
 }
 
 Helper::requires( 'common.php', 'dynamic-styles' );
@@ -27,9 +27,11 @@ $primary_rgb   = Helper::hex2rgb( $primary_color );
 $secondary_rgb = Helper::hex2rgb( $secondary_color );
 ?>
 <?php
-/*-------------------------------------
-#. Defaults
----------------------------------------*/
+/*
+-------------------------------------
+Defaults
+---------------------------------------
+*/
 
 ?>
 :root {
@@ -41,9 +43,11 @@ $secondary_rgb = Helper::hex2rgb( $secondary_color );
 --rtcl-body-color: <?php echo esc_html( $body_color ? $body_color : '#797f89' ); ?>;
 }
 <?php
-/*-------------------------------------
-#. Header
----------------------------------------*/
+/*
+-------------------------------------
+Header
+---------------------------------------
+*/
 
 ?>
 .trheader .main-header {

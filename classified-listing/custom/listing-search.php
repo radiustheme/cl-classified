@@ -9,6 +9,8 @@ if ( ! class_exists( 'Rtcl' ) ) {
 	return;
 }
 
+// phpcs:disable WordPress.Security.NonceVerification.Recommended
+
 use RadiusTheme\ClassifiedLite\Helper;
 use RadiusTheme\ClassifiedLite\Options;
 use Rtcl\Helpers\Functions;
@@ -178,7 +180,12 @@ $style = Options::$options['listing_search_style'];
 					<div class="form-group">
 						<div class="rtcl-search-input-button cl-classified-search-style-2 rtin-location rtcl-geo-address-field">
 							<input type="text" name="geo_address" autocomplete="off"
-								   value="<?php echo esc_attr( ! empty( $_GET['geo_address'] ) ? sanitize_text_field( wp_unslash( $_GET['geo_address'] ) ) : '' ); ?>"
+								   value="
+								   <?php
+                                   // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+									echo esc_attr( ! empty( $_GET['geo_address'] ) ? sanitize_text_field( wp_unslash( $_GET['geo_address'] ) ) : '' );
+									?>
+								   "
 								   placeholder="
 								   <?php
 									esc_attr_e( 'Select a location', 'cl-classified' );
@@ -187,9 +194,19 @@ $style = Options::$options['listing_search_style'];
 								   class="form-control rtcl-geo-address-input"/>
 							<i class="rtcl-get-location rtcl-icon rtcl-icon-target"></i>
 							<input type="hidden" class="latitude" name="center_lat"
-								   value="<?php echo esc_attr( ! empty( $_GET['center_lat'] ) ? sanitize_text_field( wp_unslash( $_GET['center_lat'] ) ) : '' ); ?>">
+								   value="
+								   <?php
+                                   // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+									echo esc_attr( ! empty( $_GET['center_lat'] ) ? sanitize_text_field( wp_unslash( $_GET['center_lat'] ) ) : '' );
+									?>
+								   ">
 							<input type="hidden" class="longitude" name="center_lng"
-								   value="<?php echo esc_attr( ! empty( $_GET['center_lng'] ) ? sanitize_text_field( wp_unslash( $_GET['center_lng'] ) ) : '' ); ?>">
+								   value="
+								   <?php
+                                   // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+									echo esc_attr( ! empty( $_GET['center_lng'] ) ? sanitize_text_field( wp_unslash( $_GET['center_lng'] ) ) : '' );
+									?>
+								   ">
 						</div>
 					</div>
 				</div>
@@ -207,6 +224,7 @@ $style = Options::$options['listing_search_style'];
 								<input type="number" class="form-control" name="distance"
 									   value="
 									   <?php
+                                       // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 										echo ! empty( $_GET['distance'] ) ? absint( $_GET['distance'] ) : 30
 										?>
 									   "
@@ -234,6 +252,7 @@ $style = Options::$options['listing_search_style'];
 
 		<?php
 		if ( ! empty( Options::$options['banner_search_category'] ) ) :
+            // phpcs:disable WordPress.WP.GlobalVariablesOverride
 			$cat_id = 'rtcl-category-search-' . wp_rand();
 			?>
 			<div class="
@@ -270,7 +289,7 @@ $style = Options::$options['listing_search_style'];
 							];
 							if ( '_rtcl_order' === $orderby ) {
 								$cat_args['orderby']  = 'meta_value_num';
-								$cat_args['meta_key'] = '_rtcl_order';
+								$cat_args['meta_key'] = '_rtcl_order'; // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_key
 							}
 							wp_dropdown_categories( $cat_args );
 							?>
@@ -419,7 +438,7 @@ $style = Options::$options['listing_search_style'];
 							   value="
 							   <?php
 								if ( isset( $_GET['q'] ) ) {
-									echo esc_attr( Functions::clean( wp_unslash( ( $_GET['q'] ) ) ) );
+									echo esc_attr( sanitize_text_field( wp_unslash( ( $_GET['q'] ) ) ) );
 								}
 								?>
 								"/>

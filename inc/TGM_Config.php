@@ -12,6 +12,11 @@ class TGM_Config {
 	public $base;
 	public $path;
 
+	/**
+	 * Constructor
+	 *
+	 * @return void
+	 */
 	public function __construct() {
 		$this->base = 'cl_classified';
 		$this->path = Constants::$theme_plugins_dir;
@@ -19,6 +24,11 @@ class TGM_Config {
 		add_action( 'tgmpa_register', [ $this, 'register_required_plugins' ] );
 	}
 
+	/**
+	 * Register the required plugins for this theme.
+	 *
+	 * @return void
+	 */
 	public function register_required_plugins() {
 		$plugins = [
 			// Bundled

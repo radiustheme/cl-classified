@@ -51,7 +51,7 @@ class Scripts {
 	 *
 	 * @return string
 	 */
-	public function fonts_url() {
+	public function fonts_url() { // phpcs:ignore Generic.Metrics.CyclomaticComplexity.MaxExceeded
 		$fonts_url = '';
 		$subsets   = '';
 		$bodyFont  = 'Lato';
@@ -241,9 +241,9 @@ class Scripts {
 			}
 			$final_fonts = array_unique( $font_families );
 			$query_args  = [
-				'family'  => urlencode( implode( '|', $final_fonts ) ),
-				'subset'  => urlencode( $subsets ),
-				'display' => urlencode( 'fallback' ),
+				'family'  => rawurlencode( implode( '|', $final_fonts ) ),
+				'subset'  => rawurlencode( $subsets ),
+				'display' => rawurlencode( 'fallback' ),
 			];
 
 			$fonts_url = add_query_arg( $query_args, '//fonts.googleapis.com/css' );
@@ -382,9 +382,9 @@ class Scripts {
 		ob_start();
 		Helper::requires( 'frontend.php', 'dynamic-styles' );
 		$dynamic_css .= ob_get_clean();
-		$dynamic_css = $this->optimized_css( $dynamic_css );
+		$dynamic_css  = $this->optimized_css( $dynamic_css );
 
-		wp_register_style( 'cl-classified-dynamic', false );
+		wp_register_style( 'cl-classified-dynamic', false, [], $this->version );
 		wp_enqueue_style( 'cl-classified-dynamic' );
 		wp_add_inline_style( 'cl-classified-dynamic', $dynamic_css );
 	}
@@ -423,7 +423,7 @@ class Scripts {
 	/**
 	 * Minify CSS by removing comments and unnecessary whitespace.
 	 *
-	 * @param  string  $css  The original CSS string.
+	 * @param  string $css  The original CSS string.
 	 *
 	 * @return string The optimized/minified CSS string.
 	 */
@@ -442,8 +442,8 @@ class Scripts {
 	 *   $base = ".my-wrapper"
 	 *   Result: ".my-wrapper h1 { color: red; } .my-wrapper p { font-size: 14px; }"
 	 *
-	 * @param  string  $css  The original CSS string.
-	 * @param  string  $base  The wrapper/parent selector to prepend.
+	 * @param  string $css  The original CSS string.
+	 * @param  string $base  The wrapper/parent selector to prepend.
 	 *
 	 * @return string The modified CSS with wrapper added.
 	 */

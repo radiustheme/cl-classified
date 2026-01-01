@@ -34,7 +34,7 @@ final class Includes {
 	/**
 	 * Fetch an instance of the class.
 	 */
-	final public static function getInstance() {
+	public static function getInstance() {
 		if ( self::$singleton === false ) {
 			self::$singleton = new self();
 		}
@@ -55,11 +55,10 @@ final class Includes {
 		if ( class_exists( 'WP_Customize_Control' ) ) {
 			Init::instance();
 		}
-		if (class_exists('Rtcl')) {
+		if ( class_exists( 'Rtcl' ) ) {
 			Listing_Functions::instance();
 		}
 	}
-
 }
 
 /**
