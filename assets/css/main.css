@@ -3374,7 +3374,7 @@ a.scrollToTop:focus {
 
 .rtcl-sidebar-wrapper .rtcl-widget-ajax-filter-class .rtcl-ajax-filter-wrap {
 	background-color: transparent;
-	padding: 25px;
+	padding: 0;
 }
 
 .rtcl-sidebar-wrapper .rtcl-category-list li img {
@@ -3743,14 +3743,6 @@ a.scrollToTop:focus {
 	padding: 25px;
 }
 
-.rtcl-widget-ajax-filter-class .rtcl-ajax-filter-wrap .rtcl-ajax-filter-item {
-	margin-top: 20px;
-}
-
-.rtcl-widget-ajax-filter-class .rtcl-ajax-filter-wrap .rtcl-ajax-filter-item:first-child {
-	margin-top: 0;
-}
-
 .rtcl-widget-ajax-filter-class .rtcl-ajax-filter-wrap .rtcl-ajax-filter-item .rtcl-noUiSlider {
 	margin-top: 7px;
 }
@@ -3770,10 +3762,6 @@ a.scrollToTop:focus {
 
 .rtcl-widget-ajax-filter-class .rtcl-ajax-filter-wrap .rtcl-ajax-filter-item .rtcl-more-less-btn .rtcl-icon .text {
 	grid-gap: 6px;
-}
-
-.rtcl-widget-ajax-filter-class .rtcl-ajax-filter-wrap .rtcl-ajax-filter-item .rtcl-filter-title-wrap {
-	margin-bottom: 20px;
 }
 
 .rtcl-widget-ajax-filter-class .rtcl-ajax-filter-wrap .rtcl-ajax-filter-item .rtcl-filter-title-wrap .rtcl-filter-title {
@@ -3837,6 +3825,10 @@ a.scrollToTop:focus {
 	font-size: 20px;
 	font-weight: 700;
 	margin-bottom: 0;
+}
+
+.rtcl-ajax-listings .no-listing-found {
+	background-color: #ffffff;
 }
 
 .rtcl .rtcl-notices-wrapper {
