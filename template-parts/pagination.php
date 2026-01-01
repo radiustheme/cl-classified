@@ -17,6 +17,9 @@ if ( $max <= 1 ) {
 	return;
 }
 
+// phpcs:disable WordPress.WP.GlobalVariablesOverride.Prohibited
+// phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped
+
 if ( get_query_var( 'paged' ) ) {
 	$paged = get_query_var( 'paged' );
 } elseif ( get_query_var( 'page' ) ) {
@@ -53,12 +56,12 @@ if ( $previous_posts_link ) {
 }
 
 /**    Link to first page, plus ellipses if necessary */
-if ( ! in_array( 1, $links ) ) {
+if ( ! in_array( 1, $links, true ) ) {
 	$class = 1 == $paged ? ' class="active"' : '';
 
 	printf( '<li%s><a href="%s">%s</a></li>' . "\n", $class, esc_url( get_pagenum_link( 1 ) ), '1' );
 
-	if ( ! in_array( 2, $links ) ) {
+	if ( ! in_array( 2, $links, true ) ) {
 		echo '<li><span>...</span></li>';
 	}
 }
@@ -71,8 +74,8 @@ foreach ( (array) $links as $link ) {
 }
 
 /**    Link to last page, plus ellipses if necessary */
-if ( ! in_array( $max, $links ) ) {
-	if ( ! in_array( $max - 1, $links ) ) {
+if ( ! in_array( $max, $links, true ) ) {
+	if ( ! in_array( $max - 1, $links, true ) ) {
 		echo '<li><span>...</span></li>' . "\n";
 	}
 

@@ -84,6 +84,7 @@ if ( Options::$has_tr_header ) {
 		}
 
 		if ( $html ) {
+            // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			printf( '<div class="header-mobile-icons">%s</div>', $html );
 		}
 		?>
