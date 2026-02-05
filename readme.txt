@@ -10,7 +10,7 @@ Stable tag: 2.0.2
 
 == Description ==
 
-CLClassified is a free classified ads theme featuring AI-powered listing form builder and smart content generation for titles & descriptions. Build professional listing and directory websites without any coding. Ideal for buying and selling, real-estate, job boards, car dealerships, restaurants, local services or any niche marketplace you can imagine.
+CLClassified is a free classified ads WordPress theme featuring AI-powered listing form builder and smart content generation for titles & descriptions. Build professional listing and directory websites without any coding. Ideal for buying and selling, real-estate, job boards, car dealerships, restaurants, local services or any niche marketplace you can imagine.
 
 == Installation ==
 
