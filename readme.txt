@@ -6,17 +6,11 @@ Tags: two-columns, three-columns, grid-layout, accessibility-ready, left-sidebar
 Requires at least: 5.5
 Tested up to: 6.9
 Requires PHP: 7.4
-Stable tag: 2.0.1
+Stable tag: 2.0.2
 
 == Description ==
 
-CLClassified is a free classified theme that comes with a feature-rich solution to build classified ads and directory websites without any technical expertise. This theme supports both general and niche-specific marketplace like real-estate, restaurants, hotels, job-boards, car listings, and others.
-
-The major strengths of this theme is AI powered features and monetization system. From AI powered drag-and-drop form builder, write with AI, frontend AI integration, AI semantic search to AI image enhancement, you can leverage all these functionalities on your classified listing site. Moreover, you can have multiple revenue streams including single ad promotions like Featured, Top, and Bump Up ads. Also, you can accept payments via PayPal or offline transactions.
-
-For customization, you can use Gutenberg and WordPress block editor. Effortlessly modify the typography, colors, headers, and more of your directory site without coding. Functionalities are enriched with features like advanced search filters, custom fields, CSV import/export, user dashboards, and detailed frontend listing submission. This theme focuses on delivering an engaging and visually appealing experience. So, visitors will enjoy a smooth browsing experience that enhances user engagement.
-
-CLClassified is SEO friendly, responsive, and compatible with popular plugins. However, this theme receives continuous updates to match with the digital trends. So, CLClassified is a perfect choice to launch a modern classified or directory website without any upfront cost.
+CLClassified is a free classified ads theme featuring AI-powered listing form builder and smart content generation for titles & descriptions. Build professional listing and directory websites without any coding. Ideal for buying and selling, real-estate, job boards, car dealerships, restaurants, local services or any niche marketplace you can imagine.
 
 == Installation ==
 
@@ -88,6 +82,9 @@ Source_2: https://www.pexels.com/photo/blue-suv-parked-in-erbil-urban-setting-28
 All images are used for demo/screenshot purposes only and are not included in the theme package.
 
 == Changelog ==
+
+= 2.0.2 (Feb 05, 2026) =
+* Fixed: Listing tag link issue
 
 = 2.0.1 (Jan 01, 2026) =
 * Fixed: No listing found empty issue
