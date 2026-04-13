@@ -6,7 +6,7 @@ Tags: two-columns, three-columns, grid-layout, accessibility-ready, left-sidebar
 Requires at least: 5.5
 Tested up to: 6.9
 Requires PHP: 7.4
-Stable tag: 2.0.3
+Stable tag: 2.0.4
 
 == Description ==
 
@@ -30,7 +30,7 @@ We don't have a pro-version of theme, but it's compatible with our premium plugi
 You can learn more about [here](https://www.radiustheme.com/downloads/clclassified-classified-ads-wordpress-theme/).
 
 = Where can I find documentation? =
-CL Classified has extensive documentation you can find [here](https://radiustheme.net/publicdemo/cl-classified/documentation/).
+CL Classified has extensive documentation you can find [here](https://radiustheme.com/demo/wordpress/themes/cl-classified/documentation/).
 
 = Do you offer support? =
 Definitely. We offer support for the free theme in the [WordPress.org forums](https://wordpress.org/support/theme/cl-classified).
@@ -82,6 +82,9 @@ Source_2: https://www.pexels.com/photo/blue-suv-parked-in-erbil-urban-setting-28
 All images are used for demo/screenshot purposes only and are not included in the theme package.
 
 == Changelog ==
+
+= 2.0.4 (Apr 13, 2026) =
+* Fixed: Bundle plugin installation issue
 
 = 2.0.3 (Mar 28, 2026) =
 * Fixed: Listing type selection issue

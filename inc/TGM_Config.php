@@ -35,14 +35,14 @@ class TGM_Config {
 			[
 				'name'     => 'CL Classified Core',
 				'slug'     => 'cl-classified-core',
-				'source'   => 'https://radiustheme.net/bundle-plugins/cl-classified/cl-classified-core.zip',
+				'source'   => 'https://www.radiustheme.com/demo/wordpress/cl-classified-plugins/cl-classified-core.zip',
 				'required' => true,
-				'version'  => '2.0.0',
+				'version'  => '2.0.1',
 			],
 			[
 				'name'     => 'RT Framework',
 				'slug'     => 'rt-framework',
-				'source'   => 'https://radiustheme.net/bundle-plugins/cl-classified/rt-framework.zip',
+				'source'   => 'https://www.radiustheme.com/demo/wordpress/cl-classified-plugins/rt-framework.zip',
 				'required' => true,
 				'version'  => '3.0',
 			],
