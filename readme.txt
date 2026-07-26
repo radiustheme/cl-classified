@@ -4,9 +4,9 @@ License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 Tags: two-columns, three-columns, grid-layout, left-sidebar, right-sidebar, post-formats, rtl-language-support, food-and-drink, entertainment, custom-colors, custom-logo, custom-menu, featured-images, footer-widgets, full-width-template, sticky-post, theme-options, threaded-comments, translation-ready, blog
 Requires at least: 5.5
-Tested up to: 6.9
+Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 2.0.4
+Stable tag: 2.1.0
 
 == Description ==
 
@@ -82,6 +82,12 @@ Source_2: https://www.pexels.com/photo/blue-suv-parked-in-erbil-urban-setting-28
 All images are used for demo/screenshot purposes only and are not included in the theme package.
 
 == Changelog ==
+
+= 2.1.0 (Jul 27, 2026) =
+* Fixed: Listing ownership capability check issue
+* Added: Listings import from google map
+* Added: Listings analytics for frontend dashboard
+* Added: Claude as AI tools
 
 = 2.0.4 (Apr 13, 2026) =
 * Fixed: Bundle plugin installation issue

@@ -63,6 +63,11 @@ class TGM_Config {
 				'required' => false,
 			],
 			[
+				'name'     => 'SchemaEngine AI',
+				'slug'     => 'review-schema',
+				'required' => false,
+			],
+			[
 				'name'     => 'Easy Demo Importer',
 				'slug'     => 'easy-demo-importer',
 				'required' => false,
