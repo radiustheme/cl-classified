@@ -2,7 +2,7 @@
 Contributors: techlabpro1
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
-Tags: two-columns, three-columns, grid-layout, accessibility-ready, left-sidebar, right-sidebar, post-formats, rtl-language-support, food-and-drink, entertainment, custom-colors, custom-logo, custom-menu, featured-images, footer-widgets, full-width-template, sticky-post, theme-options, threaded-comments, translation-ready, blog
+Tags: two-columns, three-columns, grid-layout, left-sidebar, right-sidebar, post-formats, rtl-language-support, food-and-drink, entertainment, custom-colors, custom-logo, custom-menu, featured-images, footer-widgets, full-width-template, sticky-post, theme-options, threaded-comments, translation-ready, blog
 Requires at least: 5.5
 Tested up to: 6.9
 Requires PHP: 7.4
