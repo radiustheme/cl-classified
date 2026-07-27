@@ -5163,6 +5163,7 @@ body.rtcl-account:not(.page-template-rtcl-canvas_template) .site-content-block .
 	background-color: transparent;
 	box-shadow: none;
 	padding: 0;
+	border: none;
 }
 
 .rtcl .rtcl-checkout-pricing-wrapper .rtcl-checkout-pricing .rtcl-membership-promotions .promotion-item>span:before {
