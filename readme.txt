@@ -83,7 +83,7 @@ All images are used for demo/screenshot purposes only and are not included in th
 
 == Changelog ==
 
-= 2.1.0 (Jul 27, 2026) =
+= 2.1.0 (Jul 29, 2026) =
 * Fixed: Listing ownership capability check issue
 * Added: Listings import from google map
 * Added: Listings analytics for frontend dashboard
