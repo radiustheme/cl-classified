@@ -14,7 +14,6 @@ use RadiusTheme\ClassifiedLite\Helper;
  * Adds the individual sections, settings, and controls to the theme customizer
  */
 class Listing_Single_Layout extends Customizer {
-
 	/**
 	 * @return void
 	 */
@@ -24,7 +23,6 @@ class Listing_Single_Layout extends Customizer {
 		// Register Page Controls
 		add_action( 'customize_register', [ $this, 'register_listing_single_layout_controls' ] );
 	}
-
 	/**
 	 * @param  \WP_Customize_Manager $wp_customize  The Customizer object.
 	 *

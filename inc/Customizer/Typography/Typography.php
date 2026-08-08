@@ -17,7 +17,6 @@ class Typography {
 
 	// Get our default values
 	private $defaults;
-
 	/**
 	 * @return void
 	 */
@@ -144,6 +143,13 @@ class Typography {
 				],
 			]
 		);
+
+		/*
+		-----------------------
+			Heading Typography
+		-----------------------
+		*/
+
 		// All Heading Typography
 		$wp_customize->add_setting(
 			'typo_heading',
@@ -689,6 +695,12 @@ class Typography {
 				]
 			)
 		);
+
+		/*
+		------------------------
+			Menu Typography
+		------------------------
+		*/
 		// Font Family
 		$wp_customize->add_setting(
 			'typo_menu',

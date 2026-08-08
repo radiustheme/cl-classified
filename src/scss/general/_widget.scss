@@ -150,6 +150,7 @@
     &:hover {
       background-color: var(--rtcl-primary-color);
       border-color: var(--rtcl-primary-color);
+      text-decoration: none;
     }
   }
 }
@@ -157,6 +158,7 @@
 .main-footer {
   .widget.widget_tag_cloud a:hover {
     color: #ffffff;
+    text-decoration: none;
   }
 }
 

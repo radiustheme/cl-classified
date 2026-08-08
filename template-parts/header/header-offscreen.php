@@ -6,9 +6,10 @@
  */
 
 use RadiusTheme\ClassifiedLite\Helper;
-use RadiusTheme\ClassifiedLite\Menu_Walker;
 use RadiusTheme\ClassifiedLite\Options;
 use Rtcl\Helpers\Link;
+
+$nav_menu_args = Helper::nav_menu_args();
 
 $site_name          = get_bloginfo( 'name' );
 $custom_logo_id     = get_theme_mod( 'custom_logo' );
@@ -70,7 +71,7 @@ if ( Options::$has_tr_header ) {
 		</div>
 		<?php
 		$html = '';
-		if ( Options::$options['header_btn_txt'] && Options::$options['header_btn'] ) {
+		if ( Options::$options['header_btn_txt'] && Options::$options['header_btn_url'] ) {
 			$html .= '<a class="header-btn header-btn-mob" href="' . esc_url( Options::$options['header_btn_url'] ) . '"><i class="fas fa-plus" aria-hidden="true"></i><span>' . esc_html( Options::$options['header_btn_txt'] ) . '</span></a>';
 		}
 
@@ -91,12 +92,7 @@ if ( Options::$has_tr_header ) {
 	</div>
 	<div class="rt-slide-nav">
 		<div class="offscreen-navigation">
-			<?php wp_nav_menu( [
-                    'theme_location' => 'primary',
-                    'container'      => 'nav',
-                    'fallback_cb'    => false,
-                    'walker'         => new Menu_Walker(),
-            ] ); ?>
+			<?php wp_nav_menu( $nav_menu_args ); ?>
 		</div>
 	</div>
 </div>

@@ -59,18 +59,18 @@ $rdtheme_aria_req  = ( $rdtheme_req ? ' required' : '' );
 
 $comment_form_fields = [
 	'author' =>
-		'<div class="row gutters-20"><div class="col-lg-6 form-group"><input type="text" id="author" name="author" value="' . esc_attr( $rdtheme_commenter['comment_author'] )
+		'<div class="row gutters-20"><div class="col-lg-6 form-group"><label class="screen-reader-text" for="author">Name</label><input type="text" id="author" name="author" value="' . esc_attr( $rdtheme_commenter['comment_author'] )
 		. '" placeholder="' . esc_attr__( 'Name', 'cl-classified' ) . ( $rdtheme_req ? ' *' : '' ) . '" class="form-control"' . $rdtheme_aria_req . '></div>',
 
 	'email'  =>
-		'<div class="col-lg-6 form-group"><input id="email" name="email" type="email" value="' . esc_attr( $rdtheme_commenter['comment_author_email'] )
+		'<div class="col-lg-6 form-group"><label class="screen-reader-text" for="email">Email</label><input id="email" name="email" type="email" value="' . esc_attr( $rdtheme_commenter['comment_author_email'] )
 		. '" class="form-control" placeholder="' . esc_attr__( 'Email', 'cl-classified' ) . ( $rdtheme_req ? ' *' : '' ) . '"' . $rdtheme_aria_req . '></div></div>',
 ];
 
 $comment_form_args = [
 	'class_submit'  => 'submit btn-send',
 	'submit_field'  => '<div class="form-group submit-button">%1$s %2$s</div>',
-	'comment_field' => '<div class="form-group"><textarea id="comment" name="comment" required placeholder="' . esc_attr__( 'Comment *', 'cl-classified' )
+	'comment_field' => '<div class="form-group"><label class="screen-reader-text" for="comment">Comment</label><textarea id="comment" name="comment" required placeholder="' . esc_attr__( 'Comment *', 'cl-classified' )
 					   . '" class="form-control textarea" rows="10" cols="40"></textarea></div>',
 	'fields'        => apply_filters( 'comment_form_default_fields', $comment_form_fields ),
 ];

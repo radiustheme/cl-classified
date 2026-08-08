@@ -10,11 +10,7 @@ namespace RadiusTheme\ClassifiedLite\Customizer\Settings;
 use RadiusTheme\ClassifiedLite\Customizer\Controls\Separator;
 use RadiusTheme\ClassifiedLite\Customizer\Customizer;
 
-/**
- * Adds the individual sections, settings, and controls to the theme customizer
- */
 class Contact_Info extends Customizer {
-
 	/**
 	 * @return void
 	 */
@@ -24,7 +20,6 @@ class Contact_Info extends Customizer {
 		// Add Controls
 		add_action( 'customize_register', [ $this, 'register_contact_controls' ] );
 	}
-
 	/**
 	 * @param  \WP_Customize_Manager $wp_customize  The Customizer object.
 	 *

@@ -11,11 +11,7 @@ use RadiusTheme\ClassifiedLite\Customizer\Controls\Image_Radio;
 use RadiusTheme\ClassifiedLite\Customizer\Customizer;
 use RadiusTheme\ClassifiedLite\Helper;
 
-/**
- * Adds the individual sections, settings, and controls to the theme customizer
- */
 class Blog_Layout extends Customizer {
-
 	/**
 	 * @return void
 	 */
@@ -25,7 +21,6 @@ class Blog_Layout extends Customizer {
 		// Register Page Controls
 		add_action( 'customize_register', [ $this, 'register_blog_layout_controls' ] );
 	}
-
 	/**
 	 * @param  \WP_Customize_Manager $wp_customize  The Customizer object.
 	 *

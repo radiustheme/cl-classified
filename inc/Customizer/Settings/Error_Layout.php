@@ -14,7 +14,6 @@ use RadiusTheme\ClassifiedLite\Helper;
  * Adds the individual sections, settings, and controls to the theme customizer
  */
 class Error_Layout extends Customizer {
-
 	/**
 	 * @return void
 	 */

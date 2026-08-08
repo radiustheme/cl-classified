@@ -14,7 +14,6 @@ use RadiusTheme\ClassifiedLite\Customizer\Customizer;
  * Adds the individual sections, settings, and controls to the theme customizer
  */
 class Post extends Customizer {
-
 	/**
 	 * @return void
 	 */

@@ -23,9 +23,9 @@ class Scripts {
 	 * - enqueue_block_editor_assets: register_gutenberg_scripts
 	 * - enqueue_block_editor_assets: enqueue_gutenberg_scripts (priority 20)
 	 *
-	 * @since 1.0.0
-	 * @version 1.1.0
 	 * @return void
+	 * @version 1.1.0
+	 * @since 1.0.0
 	 */
 	public function __construct() {
 		$this->version = Constants::$theme_version;
@@ -205,8 +205,7 @@ class Scripts {
 			// Heading 3 Font
 			if ( ! empty( $h3_font['font'] ) ) {
 				if ( 'off' !== $h3Font ) {
-					// phpcs:ignore WordPress.PHP.StrictInArray.MissingTrueStrict
-					if ( ! in_array( $h3Font, $check_families ) ) {
+					if ( ! in_array( $h3Font, $check_families, true ) ) {
 						$font_families[]  = $h3Font . ':' . $h3FontW;
 						$check_families[] = $h3Font;
 					}
@@ -215,8 +214,7 @@ class Scripts {
 			// Heading 4 Font
 			if ( ! empty( $h4_font['font'] ) ) {
 				if ( 'off' !== $h4Font ) {
-					// phpcs:ignore WordPress.PHP.StrictInArray.MissingTrueStrict
-					if ( ! in_array( $h4Font, $check_families ) ) {
+					if ( ! in_array( $h4Font, $check_families, true ) ) {
 						$font_families[]  = $h4Font . ':' . $h4FontW;
 						$check_families[] = $h4Font;
 					}
@@ -226,8 +224,7 @@ class Scripts {
 			// Heading 5 Font
 			if ( ! empty( $h5_font['font'] ) ) {
 				if ( 'off' !== $h5Font ) {
-					// phpcs:ignore WordPress.PHP.StrictInArray.MissingTrueStrict
-					if ( ! in_array( $h5Font, $check_families ) ) {
+					if ( ! in_array( $h5Font, $check_families, true ) ) {
 						$font_families[]  = $h5Font . ':' . $h5FontW;
 						$check_families[] = $h5Font;
 					}
@@ -236,8 +233,7 @@ class Scripts {
 			// Heading 6 Font
 			if ( ! empty( $h6_font['font'] ) ) {
 				if ( 'off' !== $h6Font ) {
-					// phpcs:ignore WordPress.PHP.StrictInArray.MissingTrueStrict
-					if ( ! in_array( $h6Font, $check_families ) ) {
+					if ( ! in_array( $h6Font, $check_families, true ) ) {
 						$font_families[]  = $h6Font . ':' . $h6FontW;
 						$check_families[] = $h6Font;
 					}
@@ -262,9 +258,11 @@ class Scripts {
 	 * @return void
 	 */
 	public function register_scripts() {
-		// Google fonts.
+		/* Deregister */
+		wp_deregister_style( 'font-awesome' );
+		// Google fonts
 		wp_register_style( 'cl-classified-gfonts', $this->fonts_url(), [], $this->version );
-		// Style.
+		// Style
 		wp_register_style( 'font-awesome', Helper::get_file( '/assets/font-awesome/css/font-awesome-all.min.css' ), [], $this->version );
 		wp_register_style( 'bootstrap', Helper::get_maybe_rtl_css( 'bootstrap.min' ), [], $this->version );
 		wp_register_style( 'cl-classified-main', Helper::get_maybe_rtl_css( 'main' ), [], $this->version );
@@ -272,7 +270,7 @@ class Scripts {
 			wp_register_style( 'cl-classified-rtl', Helper::get_css( 'rtl' ), [], $this->version );
 		}
 
-		// Script.
+		// Script
 		wp_register_script( 'bootstrap', Helper::get_js( 'bootstrap.bundle.min' ), [ 'jquery' ], $this->version, true );
 		wp_register_script( 'cl-classified-main', Helper::get_js( 'main' ), [ 'jquery' ], $this->version, true );
 	}
@@ -385,6 +383,7 @@ class Scripts {
 		Helper::requires( 'frontend.php', 'dynamic-styles' );
 		$dynamic_css .= ob_get_clean();
 		$dynamic_css  = $this->optimized_css( $dynamic_css );
+
 		wp_register_style( 'cl-classified-dynamic', false, [], $this->version );
 		wp_enqueue_style( 'cl-classified-dynamic' );
 		wp_add_inline_style( 'cl-classified-dynamic', $dynamic_css );
@@ -411,7 +410,7 @@ class Scripts {
 
 		$bgimg = ! empty( wp_get_attachment_image_url( Options::$options['banner_image'], 'full' ) ) ? wp_get_attachment_image_url(
 			Options::$options['banner_image'],
-			'full'
+			'full',
 		) : '';
 
 		if ( ! empty( $bgimg ) ) {
@@ -424,7 +423,7 @@ class Scripts {
 	/**
 	 * Minify CSS by removing comments and unnecessary whitespace.
 	 *
-	 * @param string $css The original CSS string.
+	 * @param  string $css  The original CSS string.
 	 *
 	 * @return string The optimized/minified CSS string.
 	 */
@@ -443,8 +442,8 @@ class Scripts {
 	 *   $base = ".my-wrapper"
 	 *   Result: ".my-wrapper h1 { color: red; } .my-wrapper p { font-size: 14px; }"
 	 *
-	 * @param string $css  The original CSS string.
-	 * @param string $base The wrapper/parent selector to prepend.
+	 * @param  string $css  The original CSS string.
+	 * @param  string $base  The wrapper/parent selector to prepend.
 	 *
 	 * @return string The modified CSS with wrapper added.
 	 */

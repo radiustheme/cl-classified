@@ -28,7 +28,6 @@ class Init {
 	private function __construct() {
 		$this->includes();
 	}
-
 	/**
 	 * @return self|null
 	 */
@@ -39,7 +38,6 @@ class Init {
 
 		return self::$instance;
 	}
-
 	/**
 	 * Include all customizer settings
 	 *

@@ -11,11 +11,7 @@ use RadiusTheme\ClassifiedLite\Customizer\Controls\Image_Radio;
 use RadiusTheme\ClassifiedLite\Customizer\Controls\Switcher;
 use RadiusTheme\ClassifiedLite\Customizer\Customizer;
 
-/**
- * Adds the individual sections, settings, and controls to the theme customizer
- */
 class Blog extends Customizer {
-
 	/**
 	 * Constructor
 	 *

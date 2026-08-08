@@ -1129,7 +1129,7 @@ blockquote cite {
 
 .main-header-inner .site-branding {
 	min-width: 150px;
-	max-width: 200px;
+	max-width: 240px;
 }
 
 .main-header-inner .header-icon-area {
@@ -1429,6 +1429,7 @@ blockquote cite {
 	background: var(--rtcl-primary-color);
 	color: #ffffff;
 	border: 1px solid transparent;
+	text-decoration: none;
 }
 
 .header-icon-area .header-btn-area .header-btn:hover i {
@@ -2004,10 +2005,12 @@ body.slidemenuon .mobile-menu-bar span.sidebarBtn span:after {
 .widget.widget_tag_cloud a:hover {
 	background-color: var(--rtcl-primary-color);
 	border-color: var(--rtcl-primary-color);
+	text-decoration: none;
 }
 
 .main-footer .widget.widget_tag_cloud a:hover {
 	color: #ffffff;
+	text-decoration: none;
 }
 
 /*---------------------------------------------
@@ -2295,6 +2298,7 @@ body.slidemenuon .mobile-menu-bar span.sidebarBtn span:after {
 
 .post-each .entry-title a:hover {
 	color: var(--rtcl-primary-color);
+	text-decoration: none;
 }
 
 .post-each .post-meta {
@@ -3370,7 +3374,7 @@ a.scrollToTop:focus {
 
 .rtcl-sidebar-wrapper .rtcl-widget-ajax-filter-class .rtcl-ajax-filter-wrap {
 	background-color: transparent;
-	padding: 25px;
+	padding: 0;
 }
 
 .rtcl-sidebar-wrapper .rtcl-category-list li img {
@@ -3739,14 +3743,6 @@ a.scrollToTop:focus {
 	padding: 25px;
 }
 
-.rtcl-widget-ajax-filter-class .rtcl-ajax-filter-wrap .rtcl-ajax-filter-item {
-	margin-top: 20px;
-}
-
-.rtcl-widget-ajax-filter-class .rtcl-ajax-filter-wrap .rtcl-ajax-filter-item:first-child {
-	margin-top: 0;
-}
-
 .rtcl-widget-ajax-filter-class .rtcl-ajax-filter-wrap .rtcl-ajax-filter-item .rtcl-noUiSlider {
 	margin-top: 7px;
 }
@@ -3766,10 +3762,6 @@ a.scrollToTop:focus {
 
 .rtcl-widget-ajax-filter-class .rtcl-ajax-filter-wrap .rtcl-ajax-filter-item .rtcl-more-less-btn .rtcl-icon .text {
 	grid-gap: 6px;
-}
-
-.rtcl-widget-ajax-filter-class .rtcl-ajax-filter-wrap .rtcl-ajax-filter-item .rtcl-filter-title-wrap {
-	margin-bottom: 20px;
 }
 
 .rtcl-widget-ajax-filter-class .rtcl-ajax-filter-wrap .rtcl-ajax-filter-item .rtcl-filter-title-wrap .rtcl-filter-title {
@@ -3833,6 +3825,10 @@ a.scrollToTop:focus {
 	font-size: 20px;
 	font-weight: 700;
 	margin-bottom: 0;
+}
+
+.rtcl-ajax-listings .no-listing-found {
+	background-color: #ffffff;
 }
 
 .rtcl .rtcl-notices-wrapper {
@@ -3992,6 +3988,10 @@ a.scrollToTop:focus {
 
 .rtcl .rtcl-listings .rtcl-listing-item .item-content .rtcl-listing-meta-data li {
 	margin-bottom: 8px;
+}
+
+.rtcl .rtcl-listings .rtcl-listing-item .item-content .rtcl-listing-meta-data li a:hover {
+	text-decoration: none;
 }
 
 .rtcl .rtcl-listings .rtcl-listing-item .item-content .rtcl-listing-meta-data li i,
@@ -4157,6 +4157,10 @@ a.scrollToTop:focus {
 
 .rtcl .rtcl-list-view .rtcl-listing-item .item-content .rtcl-listing-meta-data li {
 	margin-right: 15px;
+}
+
+.rtcl .rtcl-list-view .rtcl-listing-item .item-content .rtcl-listing-meta-data li a:hover {
+	text-decoration: none;
 }
 
 @media screen and (min-width: 768px) {
@@ -4485,6 +4489,10 @@ a.scrollToTop:focus {
 .rtcl-single-listing-details .rtcl-listing-meta .rtcl-listing-meta-data li {
 	color: #797f89;
 	margin-right: 15px;
+}
+
+.rtcl-single-listing-details .rtcl-listing-meta .rtcl-listing-meta-data li a:hover {
+	text-decoration: none;
 }
 
 .rtcl-single-listing-details .rtcl-listing-meta .rtcl-listing-meta-data li svg,
@@ -4937,7 +4945,7 @@ a.scrollToTop:focus {
 	border: none;
 	color: #000000;
 	margin: 0 0 25px;
-	padding: 0;
+	padding: 0 0 15px;
 }
 
 .rtcl-sl-container .rtcl-sl-section .rtcl-sl-section-header .rtcl-sl-section-title {
@@ -5155,6 +5163,7 @@ body.rtcl-account:not(.page-template-rtcl-canvas_template) .site-content-block .
 	background-color: transparent;
 	box-shadow: none;
 	padding: 0;
+	border: none;
 }
 
 .rtcl .rtcl-checkout-pricing-wrapper .rtcl-checkout-pricing .rtcl-membership-promotions .promotion-item>span:before {

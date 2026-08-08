@@ -16,7 +16,6 @@ class Layouts {
 	public $base;
 	public $type;
 	public $meta_value;
-
 	/**
 	 * Constructor
 	 *
@@ -27,7 +26,6 @@ class Layouts {
 
 		add_action( 'template_redirect', [ $this, 'layout_settings' ] );
 	}
-
 	/**
 	 * Get the instance of the class
 	 *
@@ -40,7 +38,6 @@ class Layouts {
 
 		return self::$instance;
 	}
-
 	/**
 	 * Set layout settings
 	 *
@@ -243,7 +240,6 @@ class Layouts {
 
 		return $op_layout;
 	}
-
 	/**
 	 * Get a background image URL for a given key.
 	 *

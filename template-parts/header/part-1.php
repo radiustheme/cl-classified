@@ -6,11 +6,11 @@
  */
 
 use RadiusTheme\ClassifiedLite\Helper;
-use RadiusTheme\ClassifiedLite\Menu_Walker;
 use RadiusTheme\ClassifiedLite\Options;
 
 use Rtcl\Helpers\Link;
 
+$nav_menu_args    = Helper::nav_menu_args();
 $login_icon_title = is_user_logged_in() ? esc_html__( 'My Account', 'cl-classified' ) : esc_html__( 'Login/Register', 'cl-classified' );
 ?>
 <div class="main-header-inner">
@@ -19,12 +19,7 @@ $login_icon_title = is_user_logged_in() ? esc_html__( 'My Account', 'cl-classifi
 
 	<div class="main-navigation-area <?php echo esc_attr( Options::$menu_alignment ); ?>">
 		<div id="main-navigation" class="main-navigation">
-			<?php wp_nav_menu( [
-                    'theme_location' => 'primary',
-                    'container'      => 'nav',
-                    'fallback_cb'    => false,
-                    'walker'         => new Menu_Walker(),
-            ] ); ?>
+			<?php wp_nav_menu( $nav_menu_args ); ?>
 		</div>
 	</div>
 
@@ -35,7 +30,7 @@ $login_icon_title = is_user_logged_in() ? esc_html__( 'My Account', 'cl-classifi
 			   href="<?php echo esc_url( Link::get_my_account_page_link( 'chat' ) ); ?>"><i class="far fa-comments"></i></a>
 		<?php endif; ?>
 		<?php if ( class_exists( 'Rtcl' ) && Options::$options['header_login_icon'] ) : ?>
-			<a class="header-login-icon" data-toggle="tooltip" title="<?php echo esc_attr( $login_icon_title ); ?>"
+			<a class="header-login-icon" data-toggle="tooltip" aria-label="<?php echo esc_attr( $login_icon_title ); ?>" title="<?php echo esc_attr( $login_icon_title ); ?>"
 			   href="<?php echo esc_url( Link::get_my_account_page_link() ); ?>"><i class="far fa-user"
 																					aria-hidden="true"></i></a>
 		<?php endif; ?>

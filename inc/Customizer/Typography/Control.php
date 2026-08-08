@@ -44,7 +44,6 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 		 */
 		private $fontOrderBy = 'alpha';
 
-
 		/**
 		 * Constructor.
 		 *
@@ -87,14 +86,14 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 			);
 			wp_enqueue_script(
 				'rttheme-typography-controls-js',
-				trailingslashit( get_template_directory_uri() ) . 'inc/Customizer/Typography/assets/typography.js',
+				trailingslashit( get_template_directory_uri() ) . 'inc/customizer/typography/assets/typography.js',
 				[ 'rttheme-select2-js' ],
 				'1.2',
 				true
 			);
 			wp_enqueue_style(
 				'rttheme-typography-controls-css',
-				trailingslashit( get_template_directory_uri() ) . 'inc/Customizer/Typography/assets/typography.css',
+				trailingslashit( get_template_directory_uri() ) . 'inc/customizer/typography/assets/typography.css',
 				[],
 				'1.1',
 				'all'
@@ -194,6 +193,7 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 
 			return false;
 		}
+
 		/**
 		 * Get Google Fonts list from local json file.
 		 *
@@ -207,9 +207,9 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 			$body_content = '';
 
 			if ( $_font_path === 'url' ) {
-				$fontFile = trailingslashit( get_template_directory_uri() ) . 'inc/Customizer/Rypography/google-fonts/google-fonts-alphabetical.json';
+				$fontFile = trailingslashit( get_template_directory_uri() ) . 'inc/customizer/typography/google-fonts/google-fonts-alphabetical.json';
 				if ( $this->fontOrderBy === 'popular' ) {
-					$fontFile = trailingslashit( get_template_directory_uri() ) . 'inc/Customizer/Rypography/google-fonts/google-fonts-popularity.json';
+					$fontFile = trailingslashit( get_template_directory_uri() ) . 'inc/customizer/typography/google-fonts/google-fonts-popularity.json';
 				}
 
 				$request = wp_remote_get( $fontFile );

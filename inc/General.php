@@ -12,7 +12,6 @@ use Rtcl\Helpers\Breadcrumb;
 class General {
 
 	protected static $instance = null;
-
 	/**
 	 * Set up initial things
 	 *
@@ -30,6 +29,8 @@ class General {
 		add_filter( 'wp_list_categories', [ $this, 'add_span_cat_count' ] );
 		add_filter( 'get_archives_link', [ $this, 'add_span_archive_count' ] );
 		add_filter( 'widget_text', 'do_shortcode' );
+		// Restrict Admin Area
+		add_action( 'after_setup_theme', [ $this, 'restrict_admin_area' ] );
 		// Disable Gutenberg widget block
 		add_filter( 'gutenberg_use_widgets_block_editor', '__return_false' );// Disables the block editor from managing widgets in the Gutenberg plugin.
 		add_filter( 'use_widgets_block_editor', '__return_false' ); // Disables the block editor from managing widgets.
@@ -45,7 +46,6 @@ class General {
 
 		return self::$instance;
 	}
-
 	/**
 	 * Theme setup
 	 *
@@ -80,17 +80,15 @@ class General {
 		register_nav_menus(
 			[
 				'primary' => esc_html__( 'Primary', 'cl-classified' ),
-			]
+			],
 		);
 	}
-
 	/**
 	 * Register sidebars
 	 *
 	 * @return void
 	 */
 	public function register_sidebars() {
-
 		register_sidebar(
 			[
 				'name'          => esc_html__( 'Sidebar', 'cl-classified' ),
@@ -99,7 +97,7 @@ class General {
 				'after_widget'  => '</div>',
 				'before_title'  => '<h3 class="widget-heading">',
 				'after_title'   => '</h3>',
-			]
+			],
 		);
 
 		$footer_widget_titles = [
@@ -118,11 +116,10 @@ class General {
 					'after_widget'  => '</div>',
 					'before_title'  => '<h3 class="widgettitle">',
 					'after_title'   => '</h3>',
-				]
+				],
 			);
 		}
 	}
-
 	/**
 	 * Add custom classes to the <body> tag.
 	 *
@@ -164,7 +161,6 @@ class General {
 
 		return $classes;
 	}
-
 	/**
 	 * Check if current page is blog
 	 *
@@ -173,7 +169,6 @@ class General {
 	public function is_blog() {
 		return ( is_archive() || is_author() || is_category() || is_home() || is_single() || is_tag() ) && 'post' == get_post_type();
 	}
-
 	/**
 	 * Add a pingback url auto-discovery header for singularly identifiable articles.
 	 *
@@ -184,7 +179,6 @@ class General {
 			printf( '<link rel="pingback" href="%s">', esc_url( get_bloginfo( 'pingback_url' ) ) );
 		}
 	}
-
 	/**
 	 * Add the wp_body_open action.
 	 *
@@ -193,7 +187,6 @@ class General {
 	public function wp_body_open() {
 		do_action( 'wp_body_open' );
 	}
-
 	/**
 	 * Scroll to top
 	 *
@@ -202,10 +195,9 @@ class General {
 	public function scroll_to_top_html() {
 		// Back-to-top link
 		if ( Options::$options['back_to_top'] ) {
-			echo '<a href="#" class="scrollToTop" style=""><i class="fa-solid fa-angle-up"></i></a>';
+			echo '<a href="#" class="scrollToTop" aria-label="Scroll to top"><i class="fa-solid fa-angle-up"></i></a>';
 		}
 	}
-
 	/**
 	 * Search form
 	 *
@@ -231,7 +223,16 @@ class General {
 
 		return $output;
 	}
-
+	/**
+	 * Restrict admin area
+	 *
+	 * @return void
+	 */
+	public function restrict_admin_area() {
+		if ( Options::$options['remove_admin_bar'] && ! current_user_can( 'manage_options' ) ) {
+			show_admin_bar( false );
+		}
+	}
 	/**
 	 * Remove `hentry` class from posts on search and page templates.
 	 *
@@ -245,7 +246,6 @@ class General {
 
 		return $classes;
 	}
-
 	/**
 	 * Add a <span> tag around category count for styling.
 	 *
@@ -258,7 +258,6 @@ class General {
 
 		return $links;
 	}
-
 	/**
 	 * Add a <span> tag around archive count for styling.
 	 *
@@ -272,7 +271,6 @@ class General {
 
 		return $links;
 	}
-
 	/**
 	 * Breadcrumb
 	 *
@@ -304,7 +302,6 @@ class General {
 					printf( '%s', wp_kses_post( $args['wrap_before'] ) );
 					foreach ( $args['breadcrumb'] as $key => $crumb ) {
 						printf( '%s', wp_kses_post( $args['before'] ) );
-
 						if ( ! empty( $crumb[1] ) && count( $args['breadcrumb'] ) !== $key + 1 ) {
 							echo '<a href="' . esc_url( $crumb[1] ) . '">' . esc_html( $crumb[0] ) . '</a>';
 						} else {

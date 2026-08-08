@@ -10,7 +10,6 @@ namespace RadiusTheme\ClassifiedLite;
 use RtclPro\Helpers\Fns;
 
 class Helper {
-
 	/**
 	 * Check if sidebar is active
 	 *
@@ -19,7 +18,6 @@ class Helper {
 	public static function has_sidebar() {
 		return ( self::has_full_width() ) ? false : true;
 	}
-
 	/**
 	 * Check if full width layout is active
 	 *
@@ -33,7 +31,7 @@ class Helper {
 	}
 
 	/**
-	 * Check if sidebar is active
+	 * Get layout class
 	 *
 	 * @return void
 	 */
@@ -44,23 +42,24 @@ class Helper {
 		if ( Options::$layout == 'left-sidebar' ) {
 			$layout_class .= ' order-lg-2';
 		}
+
 		$layout_class = apply_filters( 'cl_classified_layout_class', $layout_class );
 
-		echo esc_html( $layout_class );
+		echo esc_attr( $layout_class );
 	}
 
 	/**
-	 * Check if sidebar is active
+	 * Get sidebar class
 	 *
 	 * @return void
 	 */
 	public static function the_sidebar_class() {
 		$sidebar_class = self::has_sidebar() ? 'col-lg-4 col-sm-12 sidebar-break-lg' : 'col-sm-12 col-12';
+
 		$sidebar_class = apply_filters( 'cl_classified_sidebar_class', $sidebar_class );
 
-		echo esc_html( $sidebar_class );
+		echo esc_attr( $sidebar_class );
 	}
-
 	/**
 	 * Callback function for rendering individual comments.
 	 *
@@ -74,7 +73,6 @@ class Helper {
 		$args2 = get_defined_vars();
 		self::get_template_part( 'template-parts/comments-callback', $args2 );
 	}
-
 	/**
 	 * Get all sidebar list
 	 *
@@ -90,7 +88,6 @@ class Helper {
 
 		return $nav_menu_args;
 	}
-
 	/**
 	 * Require a file from the child or parent theme directories.
 	 *
@@ -123,7 +120,6 @@ class Helper {
 			return false;
 		}
 	}
-
 	/**
 	 * Get the correct file URL from child or parent theme.
 	 *
@@ -139,7 +135,6 @@ class Helper {
 
 		return $file;
 	}
-
 	/**
 	 * Get the URL of an image file from the theme assets.
 	 *
@@ -152,7 +147,6 @@ class Helper {
 
 		return self::get_file( $path );
 	}
-
 	/**
 	 * Get the URL of an image file from the theme assets.
 	 *
@@ -165,7 +159,6 @@ class Helper {
 
 		return self::get_file( $path );
 	}
-
 	/**
 	 * Get the correct CSS file URL, using an RTL version if applicable.
 	 *
@@ -182,7 +175,6 @@ class Helper {
 			return self::get_css( $filename );
 		}
 	}
-
 	/**
 	 * Get the URL of an RTL CSS file from the theme assets.
 	 *
@@ -195,7 +187,6 @@ class Helper {
 
 		return self::get_file( $path );
 	}
-
 	/**
 	 * Get the URL of a JavaScript file from the theme assets.
 	 *
@@ -208,7 +199,6 @@ class Helper {
 
 		return self::get_file( $path );
 	}
-
 	/**
 	 * Load a template part from the child or parent theme.
 	 *
@@ -333,7 +323,6 @@ class Helper {
 
 		return $style;
 	}
-
 	/**
 	 * Load or get a custom listing template part.
 	 *
@@ -354,7 +343,6 @@ class Helper {
 			return $template;
 		}
 	}
-
 	/**
 	 * Load or get a custom store template part.
 	 *
@@ -374,7 +362,6 @@ class Helper {
 			return $template;
 		}
 	}
-
 	/**
 	 * Get the correct CSS file URL, using an RTL version if applicable.
 	 *
@@ -389,35 +376,36 @@ class Helper {
 
 		return false;
 	}
-
 	/**
 	 * @return mixed|null
 	 */
 	public static function get_primary_color() {
 		return apply_filters( 'rdtheme_primary_color', Options::$options['primary_color'] );
 	}
-
 	/**
 	 * @return mixed|null
 	 */
 	public static function get_secondary_color() {
 		return apply_filters( 'rdtheme_secondary_color', Options::$options['secondary_color'] );
 	}
-
 	/**
 	 * @return mixed|null
 	 */
 	public static function get_top_bg_color() {
 		return apply_filters( 'rdtheme_top_bg_color', Options::$options['top_listing_bg'] );
 	}
-
 	/**
 	 * @return mixed|null
 	 */
 	public static function get_lite_primary_color() {
 		return apply_filters( 'rdtheme_lite_primary_color', Options::$options['lite_primary_color'] );
 	}
-
+	/**
+	 * @return mixed|null
+	 */
+	public static function get_body_color() {
+		return apply_filters( 'rdtheme_body_color', Options::$options['body_color'] );
+	}
 	/**
 	 * Check if the login button is enabled in the theme customizer.
 	 *
@@ -431,7 +419,6 @@ class Helper {
 
 		return true;
 	}
-
 	/**
 	 * Check if the login button is enabled in the theme customizer.
 	 *
@@ -445,7 +432,6 @@ class Helper {
 
 		return true;
 	}
-
 	/**
 	 * Show copywrite area
 	 *
@@ -459,7 +445,6 @@ class Helper {
 
 		return true;
 	}
-
 	/**
 	 * Check if the login button is enabled in the theme customizer.
 	 *
@@ -473,7 +458,6 @@ class Helper {
 
 		return true;
 	}
-
 	/**
 	 * Temporarily replace the global $wp_query with a new query.
 	 *
@@ -491,7 +475,6 @@ class Helper {
 
 		return $temp;
 	}
-
 	/**
 	 * Reset a temporary WP_Query instance.
 	 *
@@ -507,7 +490,6 @@ class Helper {
 		$wp_query = $temp;
 		wp_reset_postdata();
 	}
-
 	/**
 	 * Convert a hex color code to an RGB string.
 	 *
@@ -530,7 +512,6 @@ class Helper {
 
 		return $rgb;
 	}
-
 	/**
 	 * Get social links
 	 *
@@ -570,7 +551,6 @@ class Helper {
 
 		return array_filter( $rdtheme_socials, [ __CLASS__, 'filter_social' ] );
 	}
-
 	/**
 	 * Filter social links to exclude empty URLs.
 	 *

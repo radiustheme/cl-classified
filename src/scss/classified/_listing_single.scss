@@ -76,6 +76,12 @@
         color: $bodyColor;
         margin-right: 15px;
 
+        a {
+          &:hover {
+            text-decoration: none;
+          }
+        }
+
         svg,
         i {
           margin-right: 6px;
@@ -588,7 +594,7 @@
       border: none;
       color: #000000;
       margin: 0 0 25px;
-      padding: 0;
+      padding: 0 0 15px;
 
       .rtcl-sl-section-title {
         font-size: 20px;

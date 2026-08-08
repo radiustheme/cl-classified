@@ -19,6 +19,7 @@ $logo_max_width           = Options::$options['logo_width'];
 
 $primary_color   = Helper::get_primary_color();
 $lite_primary    = Helper::get_lite_primary_color();
+$body_color      = Helper::get_body_color();
 $secondary_color = Helper::get_secondary_color();
 $top_bg          = Helper::get_top_bg_color();
 
@@ -28,9 +29,10 @@ $secondary_rgb = Helper::hex2rgb( $secondary_color );
 <?php
 /*
 -------------------------------------
-// . Defaults
+Defaults
 ---------------------------------------
 */
+
 ?>
 :root {
 --rtcl-primary-color: <?php echo esc_html( $primary_color ? $primary_color : '#f9423a' ); ?>;
@@ -38,13 +40,15 @@ $secondary_rgb = Helper::hex2rgb( $secondary_color );
 --rtcl-top-bg-color: <?php echo esc_html( $top_bg ? $top_bg : '#dff0f3' ); ?>;
 --rtcl-link-hover-color: <?php echo esc_html( $secondary_color ? $secondary_color : '#ef1c13' ); ?>;
 --rtcl-lite-primary-color: <?php echo esc_html( $lite_primary ? $lite_primary : '#feeceb' ); ?>;
+--rtcl-body-color: <?php echo esc_html( $body_color ? $body_color : '#797f89' ); ?>;
 }
 <?php
 /*
 -------------------------------------
-// . Header
+Header
 ---------------------------------------
 */
+
 ?>
 .trheader .main-header {
 background-color: <?php echo esc_html( $header_transparent_color ); ?>;

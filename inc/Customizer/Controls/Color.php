@@ -84,12 +84,10 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 				<?php
 				// Output the label and description if they were passed in.
 				if ( isset( $this->label ) && '' !== $this->label ) {
-                    // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-					echo '<span class="customize-control-title">' . sanitize_text_field( $this->label ) . '</span>';
+					echo '<span class="customize-control-title">' . esc_html( $this->label ) . '</span>';
 				}
 				if ( isset( $this->description ) && '' !== $this->description ) {
-                    // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-					echo '<span class="description customize-control-description">' . sanitize_text_field( $this->description ) . '</span>';
+					echo '<span class="description customize-control-description">' . esc_html( $this->description ) . '</span>';
 				}
 				?>
 			</label>

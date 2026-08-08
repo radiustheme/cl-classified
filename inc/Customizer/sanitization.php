@@ -1,14 +1,13 @@
 <?php
 
 if ( class_exists( 'WP_Customize_Control' ) ) {
-
 	if ( ! function_exists( 'rttheme_url_sanitization' ) ) {
 		/**
 		 * Sanitize a URL or a comma-separated list of URLs.
 		 *
 		 * Escapes URLs using esc_url_raw() and preserves comma separation if multiple URLs.
 		 *
-		 * @param string|array $input Input string or array of URLs.
+		 * @param  string|array $input  Input string or array of URLs.
 		 *
 		 * @return string Sanitized URL(s), comma-separated if multiple.
 		 */
@@ -35,7 +34,7 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 		 *
 		 * Converts boolean true/false to integer 1/0.
 		 *
-		 * @param bool|mixed $input Switch value.
+		 * @param  bool|mixed $input  Switch value.
 		 *
 		 * @return int Sanitized integer value (1 or 0).
 		 */
@@ -55,8 +54,8 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 		 * Ensures the input is one of the allowed choices for the given setting.
 		 * Returns the default value if input is invalid.
 		 *
-		 * @param string|int $input   The input value to sanitize.
-		 * @param object     $setting The WP_Customize_Setting object.
+		 * @param  string|int $input  The input value to sanitize.
+		 * @param  object     $setting  The WP_Customize_Setting object.
 		 *
 		 * @return string|int Sanitized value (valid choice or default).
 		 */
@@ -78,7 +77,7 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 		 *
 		 * Converts the input value to an integer.
 		 *
-		 * @param mixed $input Input value to sanitize.
+		 * @param  mixed $input  Input value to sanitize.
 		 *
 		 * @return int Sanitized integer value.
 		 */
@@ -94,7 +93,7 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 		 * Splits input by commas, sanitizes each item, and returns
 		 * the sanitized string (re-joined by commas) or a single sanitized value.
 		 *
-		 * @param string $input Input text or comma-separated values.
+		 * @param  string $input  Input text or comma-separated values.
 		 *
 		 * @return string Sanitized string.
 		 */
@@ -122,7 +121,7 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 		 * Decodes JSON input, applies sanitize_text_field() to each value,
 		 * and re-encodes the array as JSON. Handles both arrays and single values.
 		 *
-		 * @param string $input JSON-encoded string representing Google Font settings.
+		 * @param  string $input  JSON-encoded string representing Google Font settings.
 		 *
 		 * @return string Sanitized JSON-encoded string.
 		 */
@@ -148,7 +147,7 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 		 * Applies sanitize_text_field() to each element of the array.
 		 * Returns an empty string if input is not an array.
 		 *
-		 * @param mixed $input Input array to sanitize.
+		 * @param  mixed $input  Input array to sanitize.
 		 *
 		 * @return array|string Sanitized array, or empty string if input is invalid.
 		 */
@@ -171,9 +170,9 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 		 *
 		 * Ensures the input value is not lower than the minimum or higher than the maximum.
 		 *
-		 * @param float|int $input The input number to clamp.
-		 * @param float|int $min   Minimum allowed value.
-		 * @param float|int $max   Maximum allowed value.
+		 * @param  float|int $input  The input number to clamp.
+		 * @param  float|int $min  Minimum allowed value.
+		 * @param  float|int $max  Maximum allowed value.
 		 *
 		 * @return float|int Number clamped within the range.
 		 */
@@ -196,8 +195,8 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 		 * Ensures the input matches the expected format. Falls back to the
 		 * setting's default value if invalid.
 		 *
-		 * @param string $input   Date or date-time string.
-		 * @param object $setting WP_Customize_Setting object.
+		 * @param  string $input  Date or date-time string.
+		 * @param  object $setting  WP_Customize_Setting object.
 		 *
 		 * @return string Sanitized date or date-time string.
 		 */
@@ -222,8 +221,8 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 		 * Ensures the input value respects the min, max, and step attributes
 		 * of the Customizer control. Uses rttheme_in_range() for final clamping.
 		 *
-		 * @param float|int $input   Input value to sanitize.
-		 * @param object    $setting WP_Customize_Setting object.
+		 * @param  float|int $input  Input value to sanitize.
+		 * @param  object    $setting  WP_Customize_Setting object.
 		 *
 		 * @return float|int Sanitized value within the allowed range.
 		 */
@@ -240,28 +239,30 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 		}
 	}
 
-	/**
-	 * Sanitize an uploaded file.
-	 *
-	 * Ensures the file is one of the allowed image types (JPEG, GIF, PNG).
-	 * Returns the default value if the file type is invalid.
-	 *
-	 * @param string $file    File URL or path.
-	 * @param object $setting WP_Customize_Setting object.
-	 *
-	 * @return string Sanitized file URL/path or default.
-	 */
-	function rttheme_sanitize_file( $file, $setting ) {
-		$mimes = [
-			'jpg|jpeg|jpe' => 'image/jpeg',
-			'gif'          => 'image/gif',
-			'png'          => 'image/png',
-		];
+	if ( ! function_exists( 'rttheme_sanitize_file' ) ) {
+		/**
+		 * Sanitize an uploaded file.
+		 *
+		 * Ensures the file is one of the allowed image types (JPEG, GIF, PNG).
+		 * Returns the default value if the file type is invalid.
+		 *
+		 * @param  string $file  File URL or path.
+		 * @param  object $setting  WP_Customize_Setting object.
+		 *
+		 * @return string Sanitized file URL/path or default.
+		 */
+		function rttheme_sanitize_file( $file, $setting ) {
+			$mimes = [
+				'jpg|jpeg|jpe' => 'image/jpeg',
+				'gif'          => 'image/gif',
+				'png'          => 'image/png',
+			];
 
-		// check file type from file name
-		$file_ext = wp_check_filetype( $file, $mimes );
+			// check file type from file name
+			$file_ext = wp_check_filetype( $file, $mimes );
 
-		// if file has a valid mime type return it, otherwise return default
-		return ( $file_ext['ext'] ? $file : $setting->default );
+			// if file has a valid mime type return it, otherwise return default
+			return ( $file_ext['ext'] ? $file : $setting->default );
+		}
 	}
 }

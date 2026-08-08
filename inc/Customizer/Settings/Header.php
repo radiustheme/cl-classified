@@ -17,7 +17,6 @@ use RadiusTheme\ClassifiedLite\Helper;
  * Adds the individual sections, settings, and controls to the theme customizer
  */
 class Header extends Customizer {
-
 	/**
 	 * @return void
 	 */
@@ -27,7 +26,6 @@ class Header extends Customizer {
 		// Add Controls
 		add_action( 'customize_register', [ $this, 'register_header_controls' ] );
 	}
-
 	/**
 	 * @param  \WP_Customize_Manager $wp_customize  The Customizer object.
 	 *

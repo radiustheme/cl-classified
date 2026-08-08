@@ -1,11 +1,8 @@
 <?php
 /**
- * The template for displaying search results pages
- *
  * @author  RadiusTheme
  * @since   1.0.0
  * @version 1.0.0
- * @package RadiusTheme\ClassifiedLite
  */
 
 use RadiusTheme\ClassifiedLite\Helper;
@@ -18,7 +15,7 @@ get_header();
 		<div class="container">
 			<div class="row">
 				<?php
-				if ( 'left-sidebar' == Options::$layout ) {
+				if ( Options::$layout == 'left-sidebar' ) {
 					get_sidebar();
 				}
 				?>
@@ -38,7 +35,7 @@ get_header();
 					<?php get_template_part( 'template-parts/pagination' ); ?>
 				</div>
 				<?php
-				if ( 'right-sidebar' == Options::$layout ) {
+				if ( Options::$layout == 'right-sidebar' ) {
 					get_sidebar();
 				}
 				?>

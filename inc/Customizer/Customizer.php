@@ -15,7 +15,6 @@ class Customizer {
 	// Get our default values
 	protected $defaults;
 	protected static $instance = null;
-
 	/**
 	 * Create a constructor.
 	 * Register the sections and controls.
@@ -28,7 +27,6 @@ class Customizer {
 		// Register sections
 		add_action( 'customize_register', [ $this, 'add_customizer_sections' ] );
 	}
-
 	/**
 	 * @return self|null
 	 */
@@ -39,7 +37,6 @@ class Customizer {
 
 		return self::$instance;
 	}
-
 	/**
 	 * @return void
 	 */

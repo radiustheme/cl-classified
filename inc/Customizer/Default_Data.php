@@ -21,7 +21,7 @@ class Default_Data {
 			'logo'                           => '',
 			'logo_light'                     => '',
 			'mobile_logo'                    => '',
-			'logo_width'                     => '200px',
+			'logo_width'                     => '240px',
 			'banner_image'                   => '',
 			'back_to_top'                    => 1,
 			'remove_admin_bar'               => 0,
@@ -37,7 +37,7 @@ class Default_Data {
 			'header_chat_icon'               => 0,
 			'header_style'                   => '1',
 			'header_width'                   => 'box-width',
-			'menu_alignment'                 => 'menu-right',
+			'menu_alignment'                 => 'menu-center',
 			'tr_header'                      => 0,
 			'header_transparent_color'       => 'rgba(255, 255, 255, .5)',
 
@@ -68,7 +68,7 @@ class Default_Data {
 			// Footer
 			'footer_style'                   => '1',
 			'copyright_area'                 => 1,
-			'copyright_text'                 => gmdate( 'Y' ) . '© All right reserved by RadiusTheme',
+			'copyright_text'                 => gmdate( 'Y' ) . '© All right reserved by Radiustheme',
 			'app_store_image'                => '',
 			'app_store_url'                  => '#',
 			'play_store_image'               => '',
@@ -170,6 +170,7 @@ class Default_Data {
 			'primary_color'                  => '#f9423a',
 			'lite_primary_color'             => '#feeceb',
 			'secondary_color'                => '#ef1c13',
+			'body_color'                     => '#797f89',
 			'top_listing_bg'                 => '#dff0f3',
 
 			// Contact Info
@@ -189,7 +190,7 @@ class Default_Data {
 				[
 					'font'          => 'Lato',
 					'regularweight' => 'normal',
-				]
+				],
 			),
 			'typo_body_size'                 => '16px',
 			'typo_body_height'               => '24px',
@@ -199,7 +200,7 @@ class Default_Data {
 				[
 					'font'          => 'Nunito',
 					'regularweight' => '700',
-				]
+				],
 			),
 			'typo_menu_size'                 => '16px',
 			'typo_menu_height'               => '24px',
@@ -213,13 +214,13 @@ class Default_Data {
 				[
 					'font'          => 'Nunito',
 					'regularweight' => '700',
-				]
+				],
 			),
 			'typo_h1'                        => wp_json_encode(
 				[
 					'font'          => '',
 					'regularweight' => '700',
-				]
+				],
 			),
 			'typo_h1_size'                   => '36px',
 			'typo_h1_height'                 => '1.5',
@@ -229,7 +230,7 @@ class Default_Data {
 					'font'          => '',
 					'regularweight' => '700',
 
-				]
+				],
 			),
 			'typo_h2_size'                   => '30px',
 			'typo_h2_height'                 => '1.5',
@@ -239,7 +240,7 @@ class Default_Data {
 					'font'          => '',
 					'regularweight' => '700',
 
-				]
+				],
 			),
 			'typo_h3_size'                   => '24px',
 			'typo_h3_height'                 => '1.5',
@@ -249,7 +250,7 @@ class Default_Data {
 					'font'          => '',
 					'regularweight' => '700',
 
-				]
+				],
 			),
 			'typo_h4_size'                   => '20px',
 			'typo_h4_height'                 => '30px',
@@ -259,7 +260,7 @@ class Default_Data {
 					'font'          => '',
 					'regularweight' => '700',
 
-				]
+				],
 			),
 			'typo_h5_size'                   => '18px',
 			'typo_h5_height'                 => '28px',
@@ -269,7 +270,7 @@ class Default_Data {
 					'font'          => '',
 					'regularweight' => '700',
 
-				]
+				],
 			),
 			'typo_h6_size'                   => '16px',
 			'typo_h6_height'                 => '26px',

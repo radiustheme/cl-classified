@@ -51,9 +51,9 @@ if ( 'fullwidth' == Options::$header_width ) {
 				<div class="tophead-right">
 					<ul class="tophead-social">
 						<?php if ( $socials ) : ?>
-							<?php foreach ( $socials as $social ) : ?>
+							<?php foreach ( $socials as $key => $social ) : ?>
 								<li>
-									<a target="_blank" href="<?php echo esc_url( $social['url'] ); ?>">
+									<a aria-label="<?php echo esc_attr( ucfirst( $key ) ); ?>" target="_blank" href="<?php echo esc_url( $social['url'] ); ?>">
 										<i class="<?php echo esc_attr( $social['icon'] ); ?>"></i>
 									</a>
 								</li>

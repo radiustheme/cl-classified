@@ -10,11 +10,7 @@ namespace RadiusTheme\ClassifiedLite\Customizer\Settings;
 use RadiusTheme\ClassifiedLite\Customizer\Customizer;
 use WP_Customize_Color_Control;
 
-/**
- * Adds the individual sections, settings, and controls to the theme customizer
- */
 class Color extends Customizer {
-
 	/**
 	 * @return void
 	 */
@@ -24,13 +20,31 @@ class Color extends Customizer {
 		// Add Controls
 		add_action( 'customize_register', [ $this, 'register_color_controls' ] );
 	}
-
 	/**
 	 * @param  \WP_Customize_Manager $wp_customize  The Customizer object.
 	 *
 	 * @return void
 	 */
 	public function register_color_controls( $wp_customize ) {
+		// Body Color
+		$wp_customize->add_setting(
+			'body_color',
+			[
+				'default'           => $this->defaults['body_color'],
+				'transport'         => 'refresh',
+				'sanitize_callback' => 'sanitize_hex_color',
+			]
+		);
+		$wp_customize->add_control(
+			new WP_Customize_Color_Control(
+				$wp_customize,
+				'body_color',
+				[
+					'label'   => esc_html__( 'Body Color', 'cl-classified' ),
+					'section' => 'site_color_section',
+				]
+			)
+		);
 		// Primary Color
 		$wp_customize->add_setting(
 			'primary_color',

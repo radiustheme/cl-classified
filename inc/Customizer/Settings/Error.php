@@ -14,7 +14,6 @@ use WP_Customize_Media_Control;
  * Adds the individual sections, settings, and controls to the theme customizer
  */
 class Error extends Customizer {
-
 	/**
 	 * @return void
 	 */
@@ -24,7 +23,6 @@ class Error extends Customizer {
 		// Add Controls
 		add_action( 'customize_register', [ $this, 'register_error_controls' ] );
 	}
-
 	/**
 	 * @param  \WP_Customize_Manager $wp_customize  The Customizer object.
 	 *

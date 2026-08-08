@@ -2,15 +2,15 @@
 Contributors: techlabpro1
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
-Tags: custom-background, custom-logo, custom-menu, featured-images, footer-widgets, translation-ready, left-sidebar, right-sidebar, blog
+Tags: two-columns, three-columns, grid-layout, left-sidebar, right-sidebar, post-formats, rtl-language-support, food-and-drink, entertainment, custom-colors, custom-logo, custom-menu, featured-images, footer-widgets, full-width-template, sticky-post, theme-options, threaded-comments, translation-ready, blog
 Requires at least: 5.5
-Tested up to: 6.9
+Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 0.0.3
+Stable tag: 2.1.0
 
 == Description ==
 
-CL Classified is a modern and clean WordPress Theme best suited for real estate website. This theme comes with all necessary features and pages for a Real Estate website.
+CLClassified is a free classified ads WordPress theme featuring AI-powered listing form builder and smart content generation for titles & descriptions. Build professional listing and directory websites without any coding. Ideal for buying and selling, real-estate, job boards, car dealerships, restaurants, local services or any niche marketplace you can imagine.
 
 == Installation ==
 
@@ -30,7 +30,7 @@ We don't have a pro-version of theme, but it's compatible with our premium plugi
 You can learn more about [here](https://www.radiustheme.com/downloads/clclassified-classified-ads-wordpress-theme/).
 
 = Where can I find documentation? =
-CL Classified has extensive documentation you can find [here](https://radiustheme.net/publicdemo/cl-classified/documentation/).
+CL Classified has extensive documentation you can find [here](https://radiustheme.com/demo/wordpress/themes/cl-classified/documentation/).
 
 = Do you offer support? =
 Definitely. We offer support for the free theme in the [WordPress.org forums](https://wordpress.org/support/theme/cl-classified).
@@ -82,6 +82,28 @@ Source_2: https://www.pexels.com/photo/blue-suv-parked-in-erbil-urban-setting-28
 All images are used for demo/screenshot purposes only and are not included in the theme package.
 
 == Changelog ==
+
+= 2.1.0 (Jul 29, 2026) =
+* Fixed: Listing ownership capability check issue
+* Added: Listings import from google map
+* Added: Listings analytics for frontend dashboard
+* Added: Claude as AI tools
+
+= 2.0.4 (Apr 13, 2026) =
+* Fixed: Bundle plugin installation issue
+
+= 2.0.3 (Mar 28, 2026) =
+* Fixed: Listing type selection issue
+
+= 2.0.2 (Feb 05, 2026) =
+* Fixed: Listing tag link issue
+
+= 2.0.1 (Jan 01, 2026) =
+* Fixed: No listing found empty issue
+* Fixed: Theme Check plugin compiles issues
+
+= 2.0.0 (Dec 30, 2025) =
+* Added Classified Listing plugin compatibility
 
 = 0.0.3 (Dec 22, 2025) =
 * Added unminified version of Bootstrap & Select2

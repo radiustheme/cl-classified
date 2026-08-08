@@ -14,8 +14,6 @@
 				<div class="main-thumbnail"><?php the_post_thumbnail(); ?></div>
 			<?php endif; ?>
 
-			<div class='post-title-wrap'><h2 class="post-title"><?php the_title(); ?></h2></div>
-
 			<?php the_content(); ?>
 
 			<?php wp_link_pages(); ?>

@@ -17,18 +17,18 @@ if ( $max <= 1 ) {
 	return;
 }
 
+// phpcs:disable WordPress.WP.GlobalVariablesOverride.Prohibited
+// phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped
+
 if ( get_query_var( 'paged' ) ) {
-	// phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
 	$paged = get_query_var( 'paged' );
 } elseif ( get_query_var( 'page' ) ) {
-	// phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
 	$paged = get_query_var( 'page' );
 } else {
-	// phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
 	$paged = 1;
 }
 
-/**    Add the current page to the array */
+/**    Add current page to the array */
 if ( $paged >= 1 ) {
 	$links[] = $paged;
 }
@@ -52,14 +52,13 @@ echo '<div class="pagination-number"><ul class="clearfix">' . "\n";
 /**    Previous Post Link */
 $previous_posts_link = get_previous_posts_link( $previous_text );
 if ( $previous_posts_link ) {
-	// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	printf( '<li class="pagi-previous">%s</li>' . "\n", $previous_posts_link );
 }
 
 /**    Link to first page, plus ellipses if necessary */
 if ( ! in_array( 1, $links, true ) ) {
 	$class = 1 == $paged ? ' class="active"' : '';
-	// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+
 	printf( '<li%s><a href="%s">%s</a></li>' . "\n", $class, esc_url( get_pagenum_link( 1 ) ), '1' );
 
 	if ( ! in_array( 2, $links, true ) ) {
@@ -69,10 +68,8 @@ if ( ! in_array( 1, $links, true ) ) {
 
 /**    Link to current page, plus 2 pages in either direction if necessary */
 sort( $links );
-// phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
 foreach ( (array) $links as $link ) {
 	$class = $paged == $link ? ' class="active"' : '';
-	// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	printf( '<li%s><a href="%s">%s</a></li>' . "\n", $class, esc_url( get_pagenum_link( $link ) ), $link );
 }
 
@@ -83,14 +80,13 @@ if ( ! in_array( $max, $links, true ) ) {
 	}
 
 	$class = $paged == $max ? ' class="active"' : '';
-	// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	printf( '<li%s><a href="%s">%s</a></li>' . "\n", $class, esc_url( get_pagenum_link( $max ) ), $max );
 }
 
 /**    Next Post Link */
 $next_posts_link = get_next_posts_link( $next_text, $max );
 if ( $next_posts_link ) {
-	// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	printf( '<li class="pagi-next">%s</li>' . "\n", $next_posts_link );
 }
+
 echo '</ul></div>' . "\n";

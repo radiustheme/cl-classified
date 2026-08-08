@@ -12,8 +12,12 @@ use RadiusTheme\ClassifiedLite\Customizer\Default_Data;
 if ( ! class_exists( 'Options' ) ) {
 	class Options {
 
-		protected static $instance       = null;
-		public static $options           = null;
+		protected static $instance = null;
+
+		// Sitewide static variables
+		public static $options = null;
+
+		// Template specific variables
 		public static $layout            = null;
 		public static $sidebar           = null;
 		public static $header_width      = null;
@@ -30,7 +34,6 @@ if ( ! class_exists( 'Options' ) ) {
 
 		public static $inner_padding_top    = null;
 		public static $inner_padding_bottom = null;
-
 		/**
 		 * @return void
 		 */
@@ -38,7 +41,6 @@ if ( ! class_exists( 'Options' ) ) {
 			add_action( 'after_setup_theme', [ $this, 'set_options' ] );
 			add_action( 'customize_preview_init', [ $this, 'set_options' ] );
 		}
-
 		/**
 		 * @return self|null
 		 */
@@ -49,11 +51,10 @@ if ( ! class_exists( 'Options' ) ) {
 
 			return self::$instance;
 		}
-
 		/**
 		 * @return void
 		 */
-		public function set_options(): void {
+		public function set_options() {
 			$defaults = Default_Data::default_values();
 			$newData  = [];
 			foreach ( $defaults as $key => $dValue ) {
